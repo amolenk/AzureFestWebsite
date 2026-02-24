@@ -3,6 +3,8 @@ import Section from "@/src/components/layout/Section";
 import SpeakersSection from "@/src/components/sections/SpeakersSection";
 import { websiteSettings } from "@/src/config/website-settings";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Speakers | Azure Fest"
 };
