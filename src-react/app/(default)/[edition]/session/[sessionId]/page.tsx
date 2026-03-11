@@ -1,3 +1,5 @@
+import { readFile } from "fs/promises";
+import path from "path";
 import MainLayout from "@/src/components/layout/MainLayout";
 import Section from "@/src/components/layout/Section";
 import SessionDetailSection from "@/src/components/sections/SessionDetailSection";
@@ -16,12 +18,9 @@ export default async function SessionDetailPage({
   edition = edition ?? websiteSettings.currentEdition.slug;
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/data/${edition}.json`);
-    if (!response.ok) {
-      throw new Error("Failed to fetch");
-    }
-
-    const data = await response.json();
+    const filePath = path.join(process.cwd(), "public", "data", `${edition}.json`);
+    const fileContent = await readFile(filePath, "utf-8");
+    const data = JSON.parse(fileContent);
     let session = (data.Sessions || []).find((s: any) => s.Id === sessionId);
 
     if (!session) {

@@ -1,3 +1,5 @@
+import { readFile } from "fs/promises";
+import path from "path";
 import MainLayout from "@/src/components/layout/MainLayout";
 import Section from "@/src/components/layout/Section";
 import SpeakerBioSection from "@/src/components/sections/SpeakerBioSection";
@@ -17,12 +19,9 @@ export default async function SpeakerDetailPage({
   edition = edition ?? websiteSettings.currentEdition.slug;
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/data/${edition}.json`);
-    if (!response.ok) {
-      throw new Error("Failed to fetch");
-    }
-
-    const data = await response.json();
+    const filePath = path.join(process.cwd(), "public", "data", `${edition}.json`);
+    const fileContent = await readFile(filePath, "utf-8");
+    const data = JSON.parse(fileContent);
     const speaker = (data.Speakers || []).find((s: any) => s.Id === speakerId);
 
     if (!speaker) {
