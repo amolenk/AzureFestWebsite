@@ -1,10 +1,9 @@
-import { readFile } from "fs/promises";
-import path from "path";
 import MainLayout from "@/src/components/layout/MainLayout";
 import Section from "@/src/components/layout/Section";
 import SpeakerBioSection from "@/src/components/sections/SpeakerBioSection";
 import SpeakerSessionsSection from "@/src/components/sections/SpeakerSessionsSection";
 import { websiteSettings } from "@/src/config/website-settings";
+import { getSpeaker, getSessionsWithSpeakers } from "@/src/lib/conference-data";
 
 export const metadata = {
   title: "Speaker Details | Azure Fest"
@@ -19,10 +18,7 @@ export default async function SpeakerDetailPage({
   edition = edition ?? websiteSettings.currentEdition.slug;
 
   try {
-    const filePath = path.join(process.cwd(), "public", "data", `${edition}.json`);
-    const fileContent = await readFile(filePath, "utf-8");
-    const data = JSON.parse(fileContent);
-    const speaker = (data.Speakers || []).find((s: any) => s.Id === speakerId);
+    const speaker = await getSpeaker(edition, speakerId);
 
     if (!speaker) {
       return (
@@ -34,6 +30,8 @@ export default async function SpeakerDetailPage({
       );
     }
 
+    const allSessions = await getSessionsWithSpeakers(edition);
+
     return (
       <MainLayout>
         <SpeakerBioSection
@@ -42,7 +40,7 @@ export default async function SpeakerDetailPage({
           profilePictureUrl={speaker.ProfilePictureUrl}
           bio={speaker.Bio}
         />
-        <SpeakerSessionsSection sessions={speaker.sessions || []} allSessions={data.Sessions || []} edition={edition} />
+        <SpeakerSessionsSection sessions={speaker.sessions || []} allSessions={allSessions} edition={edition} />
       </MainLayout>
     );
   } catch {

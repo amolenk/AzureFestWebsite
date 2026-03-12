@@ -7,15 +7,19 @@ import Venue from "@/src/components/sections/Venue";
 import Sponsors from "@/src/components/sections/Sponsors";
 import TicketsAd from "@/src/components/sections/TicketsAd";
 import Organizers from "@/src/components/sections/Organizers";
+import { getSpeakers } from "@/src/lib/conference-data";
 
-export default function HomePage() {
+export default async function HomePage() {
   const edition = websiteSettings.currentEdition;
+  const speakers = edition.speakers.announced
+    ? await getSpeakers(edition.slug)
+    : [];
 
   return (
     <MainLayout>
       <Hero />
       <About />
-      {edition.speakers.announced && <SpeakerHighlights />}
+      {edition.speakers.announced && <SpeakerHighlights speakers={speakers} />}
       <Venue />
       <Sponsors />
       {edition.registration.enabled && <TicketsAd />}

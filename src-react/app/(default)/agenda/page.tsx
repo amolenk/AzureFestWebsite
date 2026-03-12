@@ -2,12 +2,13 @@ import MainLayout from "@/src/components/layout/MainLayout";
 import AgendaSection from "@/src/components/sections/AgendaSection";
 import Section from "@/src/components/layout/Section";
 import { websiteSettings } from "@/src/config/website-settings";
+import { getSessionsWithSpeakers } from "@/src/lib/conference-data";
 
 export const metadata = {
   title: "Agenda | Azure Fest"
 };
 
-export default function AgendaPage() {
+export default async function AgendaPage() {
   if (!websiteSettings.currentEdition.schedule.announced) {
     return (
       <MainLayout>
@@ -21,9 +22,11 @@ export default function AgendaPage() {
     );
   }
 
+  const sessions = await getSessionsWithSpeakers(websiteSettings.currentEdition.slug);
+
   return (
     <MainLayout>
-      <AgendaSection />
+      <AgendaSection sessions={sessions} />
     </MainLayout>
   );
 }

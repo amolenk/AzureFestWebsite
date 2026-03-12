@@ -3,9 +3,9 @@ import styles from "./SpeakerBioSection.module.css";
 
 interface SpeakerBioSectionProps {
   fullName: string;
-  tagLine: string;
+  tagLine?: string;
   profilePictureUrl: string;
-  bio: string;
+  bio?: string;
 }
 
 export default function SpeakerBioSection({ fullName, tagLine, profilePictureUrl, bio }: SpeakerBioSectionProps) {

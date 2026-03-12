@@ -1,11 +1,6 @@
-"use client";
-
-import useSWR from "swr";
-import { websiteSettings } from "@/src/config/website-settings";
 import Section from "../layout/Section";
 import SpeakerCard from "./SpeakerCard";
-
-const fetcher = (url: string) => fetch(url).then((r) => r.json());
+import { Speaker } from "@/src/lib/conference-data";
 
 function shuffle<T>(array: T[]): T[] {
   const arr = [...array];
@@ -16,23 +11,13 @@ function shuffle<T>(array: T[]): T[] {
   return arr;
 }
 
-export default function SpeakerHighlights() {
-  const { data, error } = useSWR(`/data/${websiteSettings.currentEdition.slug}.json`, fetcher);
-
-  if (error) {
-    return null;
-  }
-
-  if (!data) {
-    return null;
-  }
-
-  const speakers = shuffle(data.Speakers || []);
+export default function SpeakerHighlights({ speakers }: { speakers: Speaker[] }) {
+  const highlighted = shuffle(speakers);
 
   return (
     <Section id="speakers" headerText="Speakers" fadeUp={true}>
       <div className="row justify-content-center g-3">
-        {speakers.slice(0, 3).map((speaker: any) => (
+        {highlighted.slice(0, 3).map((speaker) => (
           <div key={speaker.Id} className="col-6 col-md-4 d-flex justify-content-center">
             <SpeakerCard speaker={speaker} />
           </div>
