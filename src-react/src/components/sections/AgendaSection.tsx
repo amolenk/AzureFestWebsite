@@ -1,49 +1,12 @@
-"use client";
-
-import useSWR from "swr";
 import { websiteSettings } from "@/src/config/website-settings";
 import Section from "../layout/Section";
 import SessionCard from "./SessionCard";
+import { SessionWithSpeakers } from "@/src/lib/conference-data";
 
-const fetcher = (url: string) => fetch(url).then((r) => r.json());
-
-interface SessionRecord {
-  Id: string;
-  Title: string;
-  StartsAt?: string;
-  EndsAt?: string;
-  IsServiceSession?: boolean;
-  Room?: string;
-  speakers?: string[];
-  Speakers?: any[];
-}
-
-export default function AgendaSection() {
+export default function AgendaSection({ sessions }: { sessions: SessionWithSpeakers[] }) {
   const edition = websiteSettings.currentEdition;
-  const { data, error } = useSWR(`/data/${edition.slug}.json`, fetcher);
 
-  if (error) {
-    return (
-      <Section headerText="Agenda">
-        <div className="row text-center">
-          <p>Failed to load agenda.</p>
-        </div>
-      </Section>
-    );
-  }
-
-  if (!data) {
-    return null;
-  }
-
-  const sessions: SessionRecord[] = (data.Sessions || []).map((session: SessionRecord) => ({
-    ...session,
-    Speakers: (session.speakers || [])
-      .map((speakerId) => (data.Speakers || []).find((speaker: any) => speaker.Id === speakerId))
-      .filter(Boolean)
-  }));
-
-  const slots = new Map<string, SessionRecord[]>();
+  const slots = new Map<string, SessionWithSpeakers[]>();
   sessions
     .filter((session) => session.StartsAt)
     .sort((a, b) => (a.StartsAt || "").localeCompare(b.StartsAt || ""))

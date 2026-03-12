@@ -2,14 +2,13 @@ import MainLayout from "@/src/components/layout/MainLayout";
 import Section from "@/src/components/layout/Section";
 import SpeakersSection from "@/src/components/sections/SpeakersSection";
 import { websiteSettings } from "@/src/config/website-settings";
-
-export const dynamic = "force-dynamic";
+import { getSpeakers } from "@/src/lib/conference-data";
 
 export const metadata = {
   title: "Speakers | Azure Fest"
 };
 
-export default function SpeakersPage() {
+export default async function SpeakersPage() {
   const cfp = websiteSettings.currentEdition.cfp;
 
   if (!websiteSettings.currentEdition.speakers.announced) {
@@ -37,9 +36,11 @@ export default function SpeakersPage() {
     );
   }
 
+  const speakers = await getSpeakers(websiteSettings.currentEdition.slug);
+
   return (
     <MainLayout>
-      <SpeakersSection />
+      <SpeakersSection speakers={speakers} />
     </MainLayout>
   );
 }

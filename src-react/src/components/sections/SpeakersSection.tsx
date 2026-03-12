@@ -1,30 +1,10 @@
-"use client";
-
-import useSWR from "swr";
 import { websiteSettings } from "@/src/config/website-settings";
 import Section from "../layout/Section";
 import SpeakerCard from "./SpeakerCard";
+import { Speaker } from "@/src/lib/conference-data";
 
-const fetcher = (url: string) => fetch(url).then((r) => r.json());
-
-export default function SpeakersSection({ edition }: { edition?: string }) {
-  const selectedEdition = edition ?? websiteSettings.currentEdition.slug;
+export default function SpeakersSection({ speakers }: { speakers: Speaker[] }) {
   const cfp = websiteSettings.currentEdition.cfp;
-  const { data, error } = useSWR(`/data/${selectedEdition}.json`, fetcher);
-
-  if (error) {
-    return (
-      <Section headerText="Speakers">
-        <div className="text-center">
-          <p>Failed to load speakers.</p>
-        </div>
-      </Section>
-    );
-  }
-
-  if (!data) {
-    return null;
-  }
 
   return (
     <Section headerText="Speakers">
@@ -40,9 +20,9 @@ export default function SpeakersSection({ edition }: { edition?: string }) {
         </div>
       )}
       <div className="row justify-content-center g-3">
-        {(data.Speakers || []).map((speaker: any) => (
+        {speakers.map((speaker) => (
           <div key={speaker.Id} className="col-6 col-md-4 d-flex justify-content-center">
-            <SpeakerCard speaker={speaker} edition={selectedEdition} />
+            <SpeakerCard speaker={speaker} />
           </div>
         ))}
       </div>
