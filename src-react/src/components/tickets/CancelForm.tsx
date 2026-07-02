@@ -4,14 +4,13 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import SpinningButton from "../common/SpinningButton";
 import Link from "next/link";
-import { cancel } from "@/src/api/admitto";
+import { cancel } from "@/src/api/admitto-client";
 
 interface CancelFormProps {
-    publicId: string,
-    signature: string
+    registrationId: string;
 }
 
-export default function CancelForm({ publicId, signature }: CancelFormProps) {
+export default function CancelForm({ registrationId }: CancelFormProps) {
 
     const router = useRouter();
     const [loading, setLoading] = useState(false);
@@ -23,11 +22,11 @@ export default function CancelForm({ publicId, signature }: CancelFormProps) {
         setError("");
 
         try {
-            await cancel(publicId, signature);
+            await cancel(registrationId);
             router.push("/tickets/cancel/confirmation");
         } catch (err: any) {
             setLoading(false);
-            setError(err.message || "Registration failed. Please try again.");
+            setError(err.message || "Cancellation failed. Please try again.");
         }
     };
 

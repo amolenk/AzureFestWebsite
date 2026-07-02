@@ -2,7 +2,9 @@ import MainLayout from "@/src/components/layout/MainLayout";
 import Section from "@/src/components/layout/Section";
 import EmailForm from "@/src/components/tickets/EmailForm";
 import ErrorCard from "@/src/components/common/ErrorCard";
-import { getAvailability } from "@/src/api/admitto";
+import { getTicketTypes } from "@/src/api/admitto";
+import { hasCapacity, requiresWaitlist } from "@/src/api/admitto-types";
+import { hasRegistrationAccess } from "@/src/config/registration-access";
 import { websiteSettings } from "@/src/config/website-settings";
 
 export const metadata = {
@@ -11,9 +13,14 @@ export const metadata = {
 
 export const dynamic = "force-dynamic";
 
-export default async function TicketsPage() {
+export default async function TicketsPage({
+  searchParams
+}: {
+  searchParams: Promise<{ vip?: string }>;
+}) {
+  const { vip: vipCode } = await searchParams;
   const edition = websiteSettings.currentEdition;
-  const registrationVisible = edition.registration.isOpen();
+  const registrationVisible = hasRegistrationAccess(vipCode);
 
   if (!registrationVisible) {
     return (
@@ -21,10 +28,9 @@ export default async function TicketsPage() {
         <Section id="tickets" headerText="Tickets">
           <div className="row justify-content-center">
             <div className="col-lg-6 text-center">
-              <p>Tickets to Azure Fest are 100% free and include parking &amp; diner.</p>
+              <p>Tickets to Azure Fest are 100% free and include parking &amp; dinner.</p>
               <p>
-                Available from July 8th for everybody. Members of Dutch Azure Meetup can get a ticket 1 day
-                earlier.
+                We're currently hard at work preparing for Azure Fest. Tickets will be available soon.
               </p>
             </div>
           </div>
@@ -34,8 +40,12 @@ export default async function TicketsPage() {
   }
 
   try {
-    const availability = await getAvailability();
-    if ((availability.ticketTypes || []).every((ticket) => ticket.hasCapacity === false)) {
+    const ticketTypes = await getTicketTypes();
+    const allSoldOut = ticketTypes.length > 0 && ticketTypes.every(
+      (t) => !hasCapacity(t) && !requiresWaitlist(t)
+    );
+
+    if (allSoldOut) {
       return (
         <MainLayout>
           <Section id="tickets" headerText="Tickets">
@@ -65,14 +75,14 @@ export default async function TicketsPage() {
           <div className="col-lg-6">
             <div className="card mb-5 mb-lg-0">
               <div className="card-body">
-                <h5 className="card-title text-muted text-uppercase text-center">General admission</h5>
+                <h5 className="card-title text-muted text-uppercase text-center">Tickets</h5>
                 <h6 className="card-price text-center">FREE</h6>
                 <hr />
                 <div className="text-center">
-                  <p>Tickets to Azure Fest are 100% free and include parking &amp; diner.</p>
+                  <p>Tickets to Azure Fest are 100% free and include parking &amp; dinner.</p>
                 </div>
                 <hr />
-                <EmailForm />
+                <EmailForm vipCode={vipCode} />
               </div>
             </div>
           </div>

@@ -3,30 +3,33 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import ErrorCard from "../common/ErrorCard";
+import ExistingRegistrationOptions from "./ExistingRegistrationOptions";
 import MainConferenceForm from "./MainConferenceForm";
 import PersonalDetailsForm, { PersonalDetails } from "./PersonalDetailsForm";
 import SpinningButton from "../common/SpinningButton";
 import {
   AdmittoError,
-  Availability,
-  getAvailability,
-  isAfterRegistrationClosed,
-  isBeforeRegistrationOpen,
+  getRegistrationDetailsByEmail,
+  getTicketTypes,
+  joinWaitlist,
   register
-} from "../../api/admitto";
-import { websiteSettings } from "@/src/config/website-settings";
+} from "../../api/admitto-client";
+import { hasCapacity, PartnerRegistrationDetailDto, PublicTicketTypeDto, requiresWaitlist } from "../../api/admitto-types";
 
 interface RegisterFormProps {
   email: string;
   token: string;
+  registrationId?: string;
+  vipCode?: string;
 }
 
-export default function RegisterForm({ email, token }: RegisterFormProps) {
+export default function RegisterForm({ email, token, registrationId, vipCode }: RegisterFormProps) {
   const [loading, setLoading] = useState(true);
   const [loadingError, setLoadingError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submittingError, setSubmittingError] = useState("");
-  const [availability, setAvailability] = useState<Availability | null>(null);
+  const [existingRegistrationId, setExistingRegistrationId] = useState(registrationId ?? "");
+  const [ticketTypes, setTicketTypes] = useState<PublicTicketTypeDto[]>([]);
   const [details, setDetails] = useState<PersonalDetails>({
     firstName: "",
     lastName: "",
@@ -39,9 +42,21 @@ export default function RegisterForm({ email, token }: RegisterFormProps) {
 
   useEffect(() => {
     async function fetchData() {
+      if (registrationId) {
+        setLoading(false);
+        return;
+      }
+
       try {
-        const availabilityResult = await getAvailability();
-        setAvailability(availabilityResult);
+        const registration = await getRegistrationDetailsByEmail(email, token, vipCode);
+        if (isActiveRegistration(registration)) {
+          setExistingRegistrationId(registration.id);
+          setLoading(false);
+          return;
+        }
+
+        const types = await getTicketTypes(vipCode);
+        setTicketTypes(types);
         setLoading(false);
       } catch (err: any) {
         setLoadingError(err.message || "Could not fetch ticket availability.");
@@ -50,7 +65,7 @@ export default function RegisterForm({ email, token }: RegisterFormProps) {
     }
 
     fetchData();
-  }, []);
+  }, [email, registrationId, token, vipCode]);
 
   useEffect(() => {
     if (email === "" || token === "") {
@@ -58,44 +73,70 @@ export default function RegisterForm({ email, token }: RegisterFormProps) {
     }
   }, [email, token, router]);
 
-  const conferenceTicket = useMemo(() => {
-    return availability?.ticketTypes.find(
-      (ticket) => ticket.slug === websiteSettings.admitto.mainConferenceTicketSlug
-    );
-  }, [availability]);
+  const conferenceTicket = useMemo(() => ticketTypes[0] ?? null, [ticketTypes]);
 
-  const canBookConference = !!conferenceTicket?.hasCapacity;
+  const isWaitlistMode = conferenceTicket ? requiresWaitlist(conferenceTicket) : false;
+  const canProceed = conferenceTicket !== null && (hasCapacity(conferenceTicket) || isWaitlistMode);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
     setSubmittingError("");
 
+    if (!conferenceTicket) {
+      setSubmitting(false);
+      return;
+    }
+
+    const ticketTypeId = conferenceTicket.id;
+
     try {
+      if (isWaitlistMode) {
+        await joinWaitlist(ticketTypeId, email, token, vipCode);
+        router.push("/tickets/register/thankyou?waitlist=1");
+        return;
+      }
+
       await register(
         email,
         details.firstName,
         details.lastName,
-        [
-          { name: "EmploymentStatus", value: details.employmentStatus },
-          { name: "CompanyName", value: details.companyName }
-        ],
-        [websiteSettings.admitto.mainConferenceTicketSlug],
-        token
+        {
+          "employment-status": details.employmentStatus,
+          "company-name": details.companyName
+        },
+        isWaitlistMode ? [] : [ticketTypeId],
+        isWaitlistMode ? [ticketTypeId] : [],
+        token,
+        vipCode
       );
 
       router.push("/tickets/register/thankyou");
     } catch (err: any) {
       if (err instanceof AdmittoError && err.code === "attendee.invalid_token") {
         router.push("/tickets/register/expired");
+      } else if (err instanceof AdmittoError && err.registrationId) {
+        setSubmitting(false);
+        setExistingRegistrationId(err.registrationId);
+      } else if (err instanceof AdmittoError && err.code === "attendee.already_registered") {
+        const registration = await getRegistrationDetailsByEmail(email, token, vipCode);
+        setSubmitting(false);
+
+        if (isActiveRegistration(registration)) {
+          setExistingRegistrationId(registration.id);
+        } else {
+          setSubmittingError("You are already registered, but we could not load your registration details. Please try again.");
+        }
       } else {
         setSubmitting(false);
-        setSubmittingError(err.message || "Registration failed. Please try again.");
+        setSubmittingError(err.message || `${isWaitlistMode ? "Joining the waitlist" : "Registration"} failed. Please try again.`);
       }
     }
   };
 
-  const isFormValid = () => (formRef.current?.checkValidity() ?? false) && canBookConference;
+  const isFormValid = () => (
+    isWaitlistMode ? canProceed : (formRef.current?.checkValidity() ?? false) && canProceed
+  );
 
   if (loading || email === "" || token === "") {
     return (
@@ -111,45 +152,45 @@ export default function RegisterForm({ email, token }: RegisterFormProps) {
     return <ErrorCard error={loadingError} />;
   }
 
-  if (availability && isBeforeRegistrationOpen(availability)) {
-    return (
-      <div className="card h-100 shadow-sm">
-        <div className="card-header text-center">
-          <h3>Registration is closed</h3>
-        </div>
-        <div className="card-body text-center">Registration is not open yet. Please check back later.</div>
-      </div>
-    );
-  }
-
-  if (availability && isAfterRegistrationClosed(availability)) {
-    return (
-      <div className="card h-100 shadow-sm">
-        <div className="card-header text-center">
-          <h3>Registration is closed</h3>
-        </div>
-        <div className="card-body text-center">Registration for this event has closed. See you next time!</div>
-      </div>
-    );
+  if (existingRegistrationId) {
+    return <ExistingRegistrationOptions email={email} registrationId={existingRegistrationId} />;
   }
 
   return (
     <div className="mx-auto">
       <form ref={formRef} onSubmit={handleSubmit} className="ticket-form">
-        <MainConferenceForm availability={availability} />
+        <MainConferenceForm ticketType={conferenceTicket} />
 
-        <PersonalDetailsForm details={details} setDetails={setDetails} disabled={submitting}>
+        {isWaitlistMode && canProceed && (
           <div className="text-center mt-3">
             {submittingError && <div className="text-danger mt-2">{submittingError}</div>}
 
-            <div className="text-center">
-              <SpinningButton loading={submitting} disabled={!isFormValid()} className="mt-2">
-                Register
-              </SpinningButton>
-            </div>
+            <SpinningButton loading={submitting} disabled={!isFormValid()} className="mt-2">
+              Join Waitlist
+            </SpinningButton>
           </div>
-        </PersonalDetailsForm>
+        )}
+
+        {!isWaitlistMode && canProceed && (
+          <PersonalDetailsForm details={details} setDetails={setDetails} disabled={submitting}>
+            <div className="text-center mt-3">
+              {submittingError && <div className="text-danger mt-2">{submittingError}</div>}
+
+              <div className="text-center">
+                <SpinningButton loading={submitting} disabled={!isFormValid()} className="mt-2">
+                  Register
+                </SpinningButton>
+              </div>
+            </div>
+          </PersonalDetailsForm>
+        )}
       </form>
     </div>
   );
+}
+
+function isActiveRegistration(
+  registration: PartnerRegistrationDetailDto | null
+): registration is PartnerRegistrationDetailDto {
+  return !!registration?.id && registration.status !== "cancelled";
 }

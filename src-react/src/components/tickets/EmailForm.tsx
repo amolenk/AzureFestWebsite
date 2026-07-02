@@ -3,9 +3,13 @@
 import React, { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import SpinningButton from "../common/SpinningButton";
-import { requestOtp } from "../../api/admitto";
+import { requestOtp } from "../../api/admitto-client";
 
-export default function EmailForm() {
+interface EmailFormProps {
+    vipCode?: string;
+}
+
+export default function EmailForm({ vipCode }: EmailFormProps) {
     const [email, setEmail] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
@@ -17,8 +21,12 @@ export default function EmailForm() {
         setLoading(true);
         setError("");
         try {
-            await requestOtp(email);
-            router.push(`/tickets/register/verify?email=${encodeURIComponent(email)}`);
+            await requestOtp(email, vipCode);
+            const params = new URLSearchParams({ email });
+            if (vipCode) {
+                params.set("vip", vipCode);
+            }
+            router.push(`/tickets/register/verify?${params.toString()}`);
         }
         catch (err: any) {
             setLoading(false);

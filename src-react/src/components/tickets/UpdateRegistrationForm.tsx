@@ -3,46 +3,30 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import {
-  Availability,
   changeTickets,
-  getAvailability,
-  getTickets,
-  isAfterRegistrationClosed
-} from "@/src/api/admitto";
-import { websiteSettings } from "@/src/config/website-settings";
+  getTicketTypes
+} from "@/src/api/admitto-client";
+import { hasCapacity, PublicTicketTypeDto, requiresWaitlist } from "@/src/api/admitto-types";
 import ErrorCard from "../common/ErrorCard";
 import SpinningButton from "../common/SpinningButton";
 
 interface UpdateRegistrationFormProps {
-  publicId: string;
-  signature: string;
+  registrationId: string;
 }
 
-export default function UpdateRegistrationForm({ publicId, signature }: UpdateRegistrationFormProps) {
+export default function UpdateRegistrationForm({ registrationId }: UpdateRegistrationFormProps) {
   const [loading, setLoading] = useState(true);
   const [loadingError, setLoadingError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submittingError, setSubmittingError] = useState("");
   const [submittingSuccess, setSubmittingSuccess] = useState("");
-  const [availability, setAvailability] = useState<Availability | null>(null);
-  const [hasConferenceTicket, setHasConferenceTicket] = useState(false);
-
-  const mainTicketSlug = websiteSettings.admitto.mainConferenceTicketSlug;
+  const [ticketTypes, setTicketTypes] = useState<PublicTicketTypeDto[]>([]);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const [availabilityResult, ticketsResult] = await Promise.all([
-          getAvailability(),
-          getTickets(publicId, signature)
-        ]);
-
-        setAvailability(availabilityResult);
-        setHasConferenceTicket((ticketsResult.tickets || []).includes(mainTicketSlug));
-
-        if (!ticketsResult.tickets || ticketsResult.tickets.length === 0) {
-          setLoadingError("No existing registration found with the provided link.");
-        }
+        const types = await getTicketTypes();
+        setTicketTypes(types);
       } catch (err: any) {
         setLoadingError(err.message || "Could not fetch ticket availability.");
       } finally {
@@ -51,12 +35,11 @@ export default function UpdateRegistrationForm({ publicId, signature }: UpdateRe
     }
 
     fetchData();
-  }, [publicId, signature, mainTicketSlug]);
+  }, []);
 
-  const canClaimTicket = useMemo(() => {
-    const ticket = availability?.ticketTypes.find((t) => t.slug === mainTicketSlug);
-    return !!ticket?.hasCapacity;
-  }, [availability, mainTicketSlug]);
+  const conferenceTicket = useMemo(() => ticketTypes[0] ?? null, [ticketTypes]);
+
+  const canClaimTicket = conferenceTicket !== null && hasCapacity(conferenceTicket) && !requiresWaitlist(conferenceTicket);
 
   const handleClaimTicket = async () => {
     setSubmitting(true);
@@ -64,8 +47,7 @@ export default function UpdateRegistrationForm({ publicId, signature }: UpdateRe
     setSubmittingSuccess("");
 
     try {
-      await changeTickets(publicId, signature, [mainTicketSlug]);
-      setHasConferenceTicket(true);
+      await changeTickets(registrationId, [conferenceTicket!.id]);
       setSubmittingSuccess("Registration updated successfully.");
     } catch (err: any) {
       setSubmittingError(err.message || "Registration update failed. Please try again.");
@@ -88,17 +70,6 @@ export default function UpdateRegistrationForm({ publicId, signature }: UpdateRe
     return <ErrorCard error={loadingError} />;
   }
 
-  if (availability && isAfterRegistrationClosed(availability)) {
-    return (
-      <div className="card h-100 shadow-sm">
-        <div className="card-header text-center">
-          <h3>Registration is closed</h3>
-        </div>
-        <div className="card-body text-center">Registration for this event has closed. See you next time!</div>
-      </div>
-    );
-  }
-
   return (
     <div className="mx-auto">
       <div className="card h-100 shadow-sm mb-4">
@@ -106,27 +77,30 @@ export default function UpdateRegistrationForm({ publicId, signature }: UpdateRe
           <h3>Your Registration</h3>
         </div>
         <div className="card-body text-center">
-          {hasConferenceTicket ? (
-            <p>You are already registered for Azure Fest general admission.</p>
-          ) : (
+          <p>You are registered for Azure Fest.</p>
+
+          {canClaimTicket && (
             <>
-              <p>This registration does not currently include a conference ticket.</p>
-              {canClaimTicket ? (
-                <SpinningButton type="button" loading={submitting} className="mt-2" onClick={handleClaimTicket}>
-                  Claim conference ticket
-                </SpinningButton>
-              ) : (
-                <p className="text-danger">General admission is sold out.</p>
-              )}
+              <p>If you do not yet have a conference ticket, you can claim one below.</p>
+              <SpinningButton type="button" loading={submitting} className="mt-2" onClick={handleClaimTicket}>
+                Claim conference ticket
+              </SpinningButton>
             </>
+          )}
+
+          {conferenceTicket && requiresWaitlist(conferenceTicket) && (
+            <p className="text-muted">Tickets are currently fully booked. Join the waitlist via the tickets page.</p>
+          )}
+
+          {!conferenceTicket && (
+            <p className="text-danger">Tickets are sold out.</p>
           )}
 
           {submittingError && <div className="text-danger mt-3">{submittingError}</div>}
           {submittingSuccess && <div className="text-success mt-3">{submittingSuccess}</div>}
 
           <div className="mt-4">
-            {/* TODO Add dedicated attendee detail editing if Azure Fest needs it in Admitto. */}
-            <Link href={`/tickets/cancel/${publicId}/${signature}`} className="btn btn-danger">
+            <Link href={`/tickets/cancel/${registrationId}`} className="btn btn-danger">
               Cancel Registration
             </Link>
           </div>

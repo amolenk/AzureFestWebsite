@@ -1,19 +1,21 @@
 'use client'
 
 import React, { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import OtpInput from "./OtpInput";
 import SpinningButton from "../common/SpinningButton";
-import { verifyOtp as admittoVerifyOtp } from "../../api/admitto";
+import { verifyOtp as admittoVerifyOtp } from "../../api/admitto-client";
 
-export default function OtpVerifyForm() {
+interface OtpVerifyFormProps {
+    email: string;
+    vipCode?: string;
+}
+
+export default function OtpVerifyForm({ email, vipCode }: OtpVerifyFormProps) {
     const router = useRouter();
-    const params = useSearchParams();
-    const email = params.get("email") || "";
     const [otp, setOtp] = useState(["", "", "", "", "", ""]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
-
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -21,19 +23,18 @@ export default function OtpVerifyForm() {
         setError("");
         const code = otp.join("");
         try {
-            const verificationResult = await admittoVerifyOtp(email, code);
-            // If we received a publicId, the user already has tickets.
-            if (verificationResult.publicId) {
-                router.push(`/tickets/edit/${verificationResult.publicId}/${verificationResult.signature}?redirect=true`);
-            } else {
-                router.push(`/tickets/register?token=${encodeURIComponent(verificationResult.registrationToken)}&email=${encodeURIComponent(email)}`);
+            const { token } = await admittoVerifyOtp(email, code, vipCode);
+            const target = new URLSearchParams({ token, email });
+            if (vipCode) {
+                target.set("vip", vipCode);
             }
+            router.push(`/tickets/register?${target.toString()}`);
         } catch (err: any) {
             setLoading(false);
             setError(err.message || "Verification failed. Please try again.");
         }
     };
- 
+
     return (
         <form onSubmit={handleSubmit} className="ticket-form">
             {error && <div className="text-danger my-3">{error}</div>}

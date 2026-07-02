@@ -1,0 +1,16 @@
+import { verifyOtp } from "@/src/api/admitto";
+import { errorResponse } from "@/src/api/route-errors";
+import { getRegistrationVipCodeFromRequest, hasRegistrationAccess } from "@/src/config/registration-access";
+
+export async function POST(req: Request) {
+  try {
+    if (!hasRegistrationAccess(getRegistrationVipCodeFromRequest(req))) {
+      return Response.json({ message: "Registration is closed." }, { status: 403 });
+    }
+
+    const { email, code } = await req.json();
+    return Response.json(await verifyOtp(email, code));
+  } catch (err) {
+    return errorResponse(err);
+  }
+}

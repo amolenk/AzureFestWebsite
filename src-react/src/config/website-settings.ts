@@ -1,13 +1,5 @@
 export interface WebsiteSettings {
-    admitto: AdmittoSettings;
     currentEdition: EditionSettings;
-}
-
-interface AdmittoSettings {
-    baseUrl: string;
-    teamSlug: string;
-    eventSlug: string;
-    mainConferenceTicketSlug: string;
 }
 
 interface EditionSettings {
@@ -79,13 +71,6 @@ interface CodeOfConductContactSettings {
 }
 
 export const websiteSettings: WebsiteSettings = {
-    admitto: {
-        baseUrl: process.env.NEXT_PUBLIC_ADMITTO_URL || "https://admitto.sandermolenkamp.com",
-        // TODO Confirm these production Admitto slugs for Azure Fest and set env vars in deployment.
-        teamSlug: process.env.NEXT_PUBLIC_ADMITTO_TEAM_SLUG || "azure-fest",
-        eventSlug: process.env.NEXT_PUBLIC_ADMITTO_EVENT_SLUG || "azure-fest-2026",
-        mainConferenceTicketSlug: process.env.NEXT_PUBLIC_ADMITTO_MAIN_TICKET_SLUG || "conference"
-    },
     currentEdition: {
         slug: "2026",
         description: "Azure Fest 2026",
@@ -109,7 +94,7 @@ export const websiteSettings: WebsiteSettings = {
             timeZone: "+02:00"
         },
         registration: {
-            opensAt: new Date("2026-07-08T00:00:00+02:00"),
+            opensAt: new Date("2026-06-08T00:00:00+02:00"),
             closesAt: new Date("2026-09-22T23:59:59+02:00"),
             enabled: false,
             isOpen: function () {
@@ -127,7 +112,6 @@ export const websiteSettings: WebsiteSettings = {
         ],
         sponsors: {
             gold: [
-                { name: "Betabit", websiteUrl: "https://www.betabit.nl", imageUrl: "img/sponsors/betabit.png" },
                 { name: "Brainstack", websiteUrl: "https://www.brainstack.nl", imageUrl: "img/sponsors/brainstack.png" },
                 { name: "Cloud Republic", websiteUrl: "https://cloudrepublic.nl", imageUrl: "img/sponsors/cloudrepublic.png" },
                 { name: "Dutchworkz", websiteUrl: "https://dutchworkz.nl", imageUrl: "img/sponsors/dutchworkz.png" },

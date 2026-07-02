@@ -13,11 +13,11 @@ export default function TicketsAd() {
           <div className="col-lg-6">
             <div className={`card mb-5 mb-lg-0 ${styles.card}`}>
               <div className="card-body">
-                <h5 className="card-title text-muted text-uppercase text-center">General admission</h5>
+                <h5 className="card-title text-muted text-uppercase text-center">Tickets</h5>
                 <h6 className={styles.cardPrice}>FREE</h6>
                 <hr />
                 <div className="text-center">
-                  <p>Tickets to Azure Fest are 100% free and include parking &amp; diner.</p>
+                  <p>Tickets to Azure Fest are 100% free and include parking &amp; dinner.</p>
                 </div>
                 <hr />
                 <div className="text-center">
@@ -33,7 +33,7 @@ export default function TicketsAd() {
       ) : (
         <div className="row justify-content-center">
           <div className="col-lg-6 text-center">
-            <p>Tickets to Azure Fest are 100% free and include parking &amp; diner.</p>
+            <p>Tickets to Azure Fest are 100% free and include parking &amp; dinner.</p>
             <p>Available from July 8th for everybody. Members of Dutch Azure Meetup can get a ticket 1 day earlier.</p>
           </div>
         </div>
