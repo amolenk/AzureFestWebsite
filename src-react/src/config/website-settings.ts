@@ -105,7 +105,6 @@ export const websiteSettings: WebsiteSettings = {
         organizers: [
             { name: "Pascal Naber", company: "Tech Driven", imageUrl: "img/organizers/pascal.jpg" },
             { name: "Jan de Vries", company: "Zure", imageUrl: "img/organizers/jan.jpg" },
-            { name: "Eva Munscher", company: "Sopra Steria", imageUrl: "img/organizers/eva.jpg" },
             { name: "Sander Molenkamp", company: "Info Support", imageUrl: "img/organizers/sander.jpg" },
             { name: "Jurgen Allewijn", company: "Yuma", imageUrl: "img/organizers/jurgen.jpg" },
             { name: "Marco Mansi", company: "SoftAware B.V.", imageUrl: "img/organizers/marco.jpg" }
