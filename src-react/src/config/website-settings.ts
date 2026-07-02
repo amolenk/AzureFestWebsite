@@ -81,7 +81,7 @@ export const websiteSettings: WebsiteSettings = {
         cfp: {
             opensAt: new Date("2026-02-23T12:00:00+02:00"),
             closesAt: new Date("2026-06-05T23:59:59+02:00"),
-            enabled: true,
+            enabled: false,
             sessionizeUrl: "https://sessionize.com/azure-fest-2026/",
             isOpen: function () {
                 const now = new Date();
