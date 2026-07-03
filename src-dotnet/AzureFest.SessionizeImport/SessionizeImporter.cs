@@ -107,7 +107,7 @@ public class SessionizeImporter(HttpClient httpClient)
 
         var outputFolder = Path.Combine(
             websitePath,
-            $"wwwroot/img/{edition}/speakers/");
+            $"public/img/{edition}/speakers/");
 
         if (!Directory.Exists(outputFolder))
         {
@@ -158,7 +158,7 @@ public class SessionizeImporter(HttpClient httpClient)
 
         var json = JsonSerializer.Serialize(value, jsonOptions);
 
-        var outputPath = Path.Combine(websitePath, $"Data/{name}/event-details.json");
+        var outputPath = Path.Combine(websitePath, $"public/data/{name}.json");
         File.WriteAllText(outputPath, json);
     }
 }

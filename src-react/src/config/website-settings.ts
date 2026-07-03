@@ -76,7 +76,7 @@ export const websiteSettings: WebsiteSettings = {
         description: "Azure Fest 2026",
         conferenceDate: new Date("2026-09-23T00:00:00+02:00"),
         speakers: {
-            announced: false
+            announced: true
         },
         cfp: {
             opensAt: new Date("2026-02-23T12:00:00+02:00"),
@@ -89,7 +89,7 @@ export const websiteSettings: WebsiteSettings = {
             }
         },
         schedule: {
-            announced: false,
+            announced: true,
             finalized: false,
             timeZone: "+02:00"
         },

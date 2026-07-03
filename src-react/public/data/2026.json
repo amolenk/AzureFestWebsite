@@ -1,0 +1,328 @@
+{
+  "Speakers": [
+    {
+      "Id": "alpa-buddhabhatti",
+      "FullName": "Alpa Buddhabhatti",
+      "Bio": "Alpa is an Azure Data Engineer with a passion for data and technology. She is Microsoft Certified Trainer and certified in Azure Data engineer and Azure Data Science. She is working on Azure services such as Logic Apps, Azure Functions, Azure Key Vault , Azure , Azure Data Factory, Azure Storage and Azure Data Lake .",
+      "TagLine": "Microsoft Data MVP, MCT, Azure Data Engineer",
+      "IsTopSpeaker": false,
+      "ProfilePictureUrl": "img/2026/speakers/alpa-buddhabhatti.jpg",
+      "sessions": [
+        "build-and-orchestrate-multiagent-workflows-using-microsoft-foundry-agent-service"
+      ]
+    },
+    {
+      "Id": "dionisio-nunes",
+      "FullName": "Dionisio Nunes",
+      "Bio": "Dionisio Nunes is the founder of Jila.ai, a water reliability platform using Azure, IoT and AI to help households and organizations monitor water tanks, predict shortages and coordinate refills in environments with intermittent infrastructure.\r\n\r\nHis career has followed a path through applied AI. He started by working on AI for electric toothbrushes, then moved into computer vision at Bosch, where he worked on AI for security cameras used to help protect military bases, airports and other critical infrastructure. He later worked on AI for architectural visualization, helping architects use vision and language models to make their projects stand out without relying on complex creative tooling.\r\n\r\nWith Jila.ai, Dionisio is now applying that experience to water access: combining connected devices, cloud architecture, time-series prediction and practical product design for markets where connectivity, power, digital literacy and infrastructure cannot be taken for granted. He has been building on Azure for the past four years and is part of Microsoft\u2019s Entrepreneurship for Positive Impact program.\r\n\r\nAlongside his technical work, Dionisio has experience as a public speaker through hosting an AI-focused podcast, joining panels, appearing as a guest speaker in TV-style discussions for a christian TV.\r\nHis talks aim to make complex technology concrete, human and memorable",
+      "TagLine": "Founder of Jila.ai | ",
+      "IsTopSpeaker": false,
+      "ProfilePictureUrl": "img/2026/speakers/dionisio-nunes.jpg",
+      "sessions": [
+        "where-water-isnt-guaranteed-azure-ai-and-iot-for-africas-last-mile"
+      ]
+    },
+    {
+      "Id": "geert-van-der-cruijsen",
+      "FullName": "Geert van der Cruijsen",
+      "Bio": "Geert van der Cruijsen is the CEO of Zure Netherlands, helping companies improve how they build software by combining strong engineering culture with modern technology. He focuses on DevOps, cloud-native development, architecture and AI, enabling teams to work more autonomously and deliver faster through smart platforms and better ways of working. Geert is a long-time Microsoft MVP and an active member of the tech community, frequently sharing knowledge through talks, content and mentorship.",
+      "TagLine": "CEO Zure Netherlands",
+      "IsTopSpeaker": false,
+      "ProfilePictureUrl": "img/2026/speakers/geert-van-der-cruijsen.jpg",
+      "sessions": [
+        "cloud-native-platform-engineering-on-azure"
+      ]
+    },
+    {
+      "Id": "hans-muns",
+      "FullName": "Hans Muns",
+      "Bio": "Hans Muns is a freelance Software Engineer and Microsoft Certified Trainer (MCT) at Backnook.\r\n\r\nAs a software engineer, Hans focuses on designing, building, and implementing software solutions mainly using the Microsoft technology stack, including .NET, C#, and Azure. He enjoys working on innovative projects that help customers address real-world challenges.\r\n\r\nIn addition to his engineering work, Hans is a Microsoft Certified Trainer, where he shares his knowledge and enthusiasm for technology with colleagues, peers, and customers, contributing to a supportive and collaborative learning environment.",
+      "TagLine": "Freelance .NET/Azure Engineer \u0026 Microsoft Certified Trainer @ Backnook",
+      "IsTopSpeaker": false,
+      "ProfilePictureUrl": "img/2026/speakers/hans-muns.jpg",
+      "sessions": [
+        "eventdriven-devops-automating-azure-with-event-grid-system-topics"
+      ]
+    },
+    {
+      "Id": "patrycja-stopka",
+      "FullName": "Patrycja Stopka",
+      "Bio": "I am a Cloud Engineer working at Sopra Steria, with 10 years of experience in IT and 5 years specializing in Microsoft technologies, mainly Windows Server and Azure.\r\n\r\nMy work focuses on building and managing environments in Microsoft Azure, both through traditional methods and automation. I\u2019m also responsible for cloud projects that improve my customers\u2019 environments.\r\n\r\nI\u2019m passionate about gaining hands-on experience and continuously developing my practical cloud skills. I also enjoy sharing what I\u2019ve learned \u2014 which is why I work as an internal tutor in my company, helping colleagues prepare for cloud certification exams.\r\n\r\nFields of Expertise\r\n\r\nCloud\r\n\u2022\tDeployment and management of both on-premises and Azure cloud environments\r\n\u2022\tCloud financial management (FinOps practices)\r\n\u2022\tCreation and customization of Azure policies and governance standards\r\n\r\nEntra ID\r\n\u2022\tIdentity and access management in Microsoft Entra ID\r\n\u2022\tApplication deployment and management\r\n\r\nDevOps\r\n\u2022\tCI/CD \u2013 implementation and maintenance of pipelines in Azure DevOps\r\n\u2022\tInfrastructure management and automation using Terraform\r\n\r\nCertification\r\nAZ-900 Microsoft Certified: Azure Fundamentals\r\nAZ-104 Microsoft Certified: Azure Administrator Associate\r\nAZ-305 Microsoft Certified: Azure Solutions Architect Expert\r\nAZ-800 Microsoft Certified: DevOps Engineer Expert\r\nSC-300 Microsoft Certified: Identity and Access Administrator Associate\r\n",
+      "TagLine": "Sopra Steria; DevOps, FinOps; Cloud; Azure, Identity",
+      "IsTopSpeaker": false,
+      "ProfilePictureUrl": "img/2026/speakers/patrycja-stopka.png",
+      "sessions": [
+        "the-cost-report-the-dashboard-you-open-with-fear"
+      ]
+    },
+    {
+      "Id": "roelant-dieben",
+      "FullName": "Roelant Dieben",
+      "Bio": "With over 20 years of experience developing software on the Microsoft stack, Roelant Dieben has a lot to share about stuff that has been obsolete for years. At Sopra Steria he is helping companies with their Azure cloud and AI challenges, he is a Microsoft Azure \u0026 AI MVP, and has a passion for machine learning \u0026 AI and application lifecycle management.",
+      "TagLine": "Cloud architect @ Sopra Steria",
+      "IsTopSpeaker": false,
+      "ProfilePictureUrl": "img/2026/speakers/roelant-dieben.jpg",
+      "sessions": [
+        "building-intelligent-search-with-azure-ai-search"
+      ]
+    },
+    {
+      "Id": "stuart-van-der-lee",
+      "FullName": "Stuart van der Lee",
+      "Bio": "Stuart is a Microsoft Azure \u0026 AI MVP and software engineer with a passion for cloud technologies, AI and modern programming languages. He also keeps a close eye on the evolving world of DevOps and the tooling, practices and patterns that surround it.\r\n\r\nStuart closely follows F1 in his free time, likes to do several sports such as cycling, golf and throwing weights around in the gym, and he tries to keep up with the endless stream of series and movies (with varying degrees of success).",
+      "TagLine": "Software Engineer @ Sopra Steria",
+      "IsTopSpeaker": false,
+      "ProfilePictureUrl": "img/2026/speakers/stuart-van-der-lee.jpg",
+      "sessions": [
+        "building-intelligent-search-with-azure-ai-search"
+      ]
+    },
+    {
+      "Id": "tobias-massoth",
+      "FullName": "Tobias Massoth",
+      "Bio": "Tobias Massoth started his professional career in 2006 as a system engineer with an early passion for Microsoft technologies and later Microsoft Azure and Kubernetes. He gained first hands-on experience with Kubernetes 1.10 and is committed to Kubernetes until today.\r\nHe is a regular attendee of KubeCon and Kubernetes Community Day (KCD) events but is also a visitor and speaker at Meetup events.\r\nReach out to him for any kind of tech discussions about Azure, Kubernetes and CNCF projects.",
+      "TagLine": "Passion for Kubernetes and Azure",
+      "IsTopSpeaker": false,
+      "ProfilePictureUrl": "img/2026/speakers/tobias-massoth.png",
+      "sessions": [
+        "azure-sre-agent-workshop"
+      ]
+    },
+    {
+      "Id": "tom-claes",
+      "FullName": "Tom Claes",
+      "Bio": "27 years-old Cloud Solution Architect at Microsoft. Masters in AI from the KU Leuven. Passionate about data, cloud \u0026 edge computing, Machine Learning \u0026 sports.",
+      "TagLine": "Cloud Solutions Architect - Azure Infra",
+      "IsTopSpeaker": false,
+      "ProfilePictureUrl": "img/2026/speakers/tom-claes.png",
+      "sessions": [
+        "from-local-to-cloudnative-realworld-azure-arc-in-action"
+      ]
+    },
+    {
+      "Id": "tom-van-den-berg",
+      "FullName": "Tom van den Berg",
+      "Bio": "Tom van den Berg is a lead developer at Info Support.\r\nAs a developer he is part of a team that realizes new and innovative solutions.\r\nTom likes to think outside of the box and he gets a lot of energy from sharing knowledge and encourage other people to think outside of the box.",
+      "TagLine": "Lead Developer | Tech Lead in .NET \u0026 Microsoft Azure",
+      "IsTopSpeaker": false,
+      "ProfilePictureUrl": "img/2026/speakers/tom-van-den-berg.png",
+      "sessions": [
+        "from-noise-to-signal-building-meaningful-slis-in-azure"
+      ]
+    },
+    {
+      "Id": "vladimir-stefanovic",
+      "FullName": "Vladimir Stefanovic",
+      "Bio": "20\u002B years in IT infrastructure, 10 years architecting Azure solutions at scale. I help organizations design cloud systems that are technically sound, cost-efficient, and built to last.\r\n\r\nAs an Azure MVP and Microsoft Certified Trainer for over a decade, I work with companies, from startups to enterprises, to navigate complex Azure deployments, avoid costly mistakes, and build teams that can sustain these systems long-term. I regularly speak at conferences and contribute to the community through writing and mentoring.\r\n\r\nI believe great architecture starts with understanding your business constraints, not just the technology. That philosophy shapes how I approach designing solutions, training teams, and advising on strategy.\r\n\r\nWhen I\u0027m not building scalable systems, you\u0027ll find me traveling and spending time with family.",
+      "TagLine": "Founder \u0026 Principal Azure Consultant @IronByte",
+      "IsTopSpeaker": false,
+      "ProfilePictureUrl": "img/2026/speakers/vladimir-stefanovic.jpg",
+      "sessions": [
+        "avnm-governing-and-scaling-virtual-networks-the-right-way"
+      ]
+    }
+  ],
+  "Sessions": [
+    {
+      "Id": "06adb264-d9ff-4301-a359-bf5aacce1809",
+      "Title": "Registration",
+      "Description": null,
+      "StartsAt": "2026-09-23T13:00:00",
+      "EndsAt": "2026-09-23T13:45:00",
+      "IsServiceSession": true,
+      "speakers": [],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "Atrium"
+    },
+    {
+      "Id": "9a7143bd-9e30-4ae1-a4e0-16798991e3a4",
+      "Title": "Keynote (TBA)",
+      "Description": null,
+      "StartsAt": "2026-09-23T13:45:00",
+      "EndsAt": "2026-09-23T15:00:00",
+      "IsServiceSession": true,
+      "speakers": [],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "Plaza"
+    },
+    {
+      "Id": "where-water-isnt-guaranteed-azure-ai-and-iot-for-africas-last-mile",
+      "Title": "Where Water Isn\u2019t Guaranteed: Azure, AI and IoT for Africa\u2019s Last Mile",
+      "Description": "Most cloud-based solutions are based on the assumption that users are mostly online, devices report on time, notifications arrive, things like location on a map are understood by users, and identity verification just works.\r\n\r\nJila.ai was built for a different reality: water tanks in most of Africa where water supply is intermittent, mobile data is expensive, users often keep data off, phone numbers matter more than email, OTP delivery can fail by operator, GPS pins are not well understood by users, and IoT devices must preserve battery due to frequent electricity blackouts while buffering telemetry until connectivity returns.\r\n\r\nIn this session, I will share lessons from building Jila, a water reliability platform using Azure as its cloud backbone. We will look at how raw tank readings become meaningful events such as alerts, refill detection, device-offline signals, P2P marketplace triggers, and operational intelligence for households and organizations.\r\n\r\nWe will also explore where AI becomes useful beyond the buzzword. For Jila, AI is not about adding a chatbot to an app. It is about using time-series prediction to answer practical questions: when will the tank run out, when is the next refill likely so users  can call a water truck on time, how long can the device sleep without harming the user experience, and how can battery behavior be predicted under local conditions? Time-series foundation models such as TimeGPT are increasingly positioned for forecasting and anomaly detection, including IoT sensor data, which makes this an interesting new layer for products like Jila.\r\n\r\nThis is a practical and reflective session about Azure IoT, event-driven architecture, offline-first product design, notification fallbacks, geospatial workflows, AI-assisted forecasting, and building cloud systems that still work when the last mile is messy.",
+      "StartsAt": "2026-09-23T15:15:00",
+      "EndsAt": "2026-09-23T16:05:00",
+      "IsServiceSession": false,
+      "speakers": [
+        "dionisio-nunes"
+      ],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "Plaza"
+    },
+    {
+      "Id": "from-local-to-cloudnative-realworld-azure-arc-in-action",
+      "Title": "From Local to Cloud-Native: Real-World Azure Arc in Action",
+      "Description": "Are you working in a hybrid or multi\u2011cloud environment and facing some of the challenges below?\r\n\r\nManaging multiple environments while maintaining a clear overview of everything you\u2019re running\r\nEfficiently monitoring the health, security, and updates of your services\r\nDealing with multiple tools that serve the same purpose across different environments\r\n\r\nIn this session, we will explain and demonstrate how Azure Arc helps customers address these challenges and more. The goal is to make you familiar with Azure Arc, help you understand where it can add value to your business, and show you how to get started (live demo \uD83E\uDD73).",
+      "StartsAt": "2026-09-23T15:15:00",
+      "EndsAt": "2026-09-23T16:05:00",
+      "IsServiceSession": false,
+      "speakers": [
+        "tom-claes"
+      ],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "Penthouse"
+    },
+    {
+      "Id": "azure-sre-agent-workshop",
+      "Title": "Azure SRE Agent Workshop",
+      "Description": "In this workshop you will gain first experiences with Azure SRE Agent - your AI buddy-engineer. \r\nWe will first cover some basics about Azure SRE Agent and talk about the scenario and the architecture of the application landscape. Once we have completed the intro part, you will deploy the environment mainly in an automated way based on clear instructions.\r\nOnce this has been completed, you will create incidents and see what the Azure SRE Agent will be doing.\r\nAt certain milestones, we will stop and discuss what happened.\r\n\r\nFor the quick-clickers, there will be additional, optional tasks available. So, no time to get bored.\r\n\r\nPrerequisites:\r\n- Ideally a notebook\r\n- Internet access\r\n- Bring your own Azure subscription \u0026 budget (should not exceed 20 EUR, maybe we will have sponsorship by Microsoft - in clarification)",
+      "StartsAt": "2026-09-23T15:15:00",
+      "EndsAt": "2026-09-23T17:25:00",
+      "IsServiceSession": false,
+      "speakers": [
+        "tobias-massoth"
+      ],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "The Garden"
+    },
+    {
+      "Id": "61ef314b-d315-4b02-b6d9-ad9fabd2f586",
+      "Title": "Break",
+      "Description": null,
+      "StartsAt": "2026-09-23T16:05:00",
+      "EndsAt": "2026-09-23T16:35:00",
+      "IsServiceSession": true,
+      "speakers": [],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "Atrium"
+    },
+    {
+      "Id": "from-noise-to-signal-building-meaningful-slis-in-azure",
+      "Title": "From Noise to Signal: Building Meaningful SLIs in Azure",
+      "Description": "Most systems today are over-instrumented and under-observed.\r\nDiscover how to build meaningful Service Level Indicators (SLIs) that reflect real user experience, not just system metrics. This session shows how to instrument SLIs with OpenTelemetry, connect them to Azure\u2019s Health Model, and turn raw telemetry into actionable reliability signals that drive SLOs, error budgets, and deployment gates.\r\n\r\nDesigned for developers who want to own reliability from day one and move beyond noisy dashboards to observability that truly matters.",
+      "StartsAt": "2026-09-23T16:35:00",
+      "EndsAt": "2026-09-23T17:25:00",
+      "IsServiceSession": false,
+      "speakers": [
+        "tom-van-den-berg"
+      ],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "Plaza"
+    },
+    {
+      "Id": "avnm-governing-and-scaling-virtual-networks-the-right-way",
+      "Title": "AVNM: Governing and Scaling Virtual Networks the Right Way",
+      "Description": "Managing a handful of Azure virtual networks is straightforward. Managing dozens across multiple subscriptions, teams, and regions, without losing control of your security posture or drowning in manual peering configurations, is a different problem entirely. Azure Virtual Network Manager was built for exactly that, yet many teams either don\u0027t know it exists or find the docs confusing.\r\n\r\nIn this session, we go deep. You\u0027ll get a clear picture of AVNM\u0027s architecture: network groups, connectivity configurations, and security admin rules. But also, how they compose into a governance model that actually scales. We\u0027ll cover where AVNM fits into a Landing Zone design, how Azure Policy drives dynamic group membership, and where the boundaries lie. Architecture diagrams, live demos, and real deployment decisions included.",
+      "StartsAt": "2026-09-23T16:35:00",
+      "EndsAt": "2026-09-23T17:25:00",
+      "IsServiceSession": false,
+      "speakers": [
+        "vladimir-stefanovic"
+      ],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "Penthouse"
+    },
+    {
+      "Id": "the-cost-report-the-dashboard-you-open-with-fear",
+      "Title": "The Cost Report: The Dashboard You Open with Fear",
+      "Description": "You deployed the solution.\r\nIt works.\r\nUsers are happy.\r\n\r\nAnd then\u2026 you open the cost report.\r\n\r\nThis session explores why cloud costs often feel unpredictable \u2014 and how to turn that fear into control.\r\n\r\nI\u2019ll start with the foundations: what FinOps really is (beyond \u201Ccutting costs\u201D) and how the FinOps Framework structures collaboration between engineering, finance, and business teams. You\u2019ll see why cost visibility fundamentally changes engineering behavior and why transparency is the foundation of sustainable cloud growth.\r\n\r\nThen we\u2019ll move from theory to practice. You\u2019ll learn practical, Azure-focused strategies to control and optimize spending without slowing down innovation. Topics include right-sizing virtual machines, leveraging Reserved Instances and Savings Plans, using Azure Hybrid Benefit, implementing storage tiering and autoscaling, and strengthening governance through tagging, budget alerts, and cost management dashboards.\r\n\r\nBeyond tools and features, we\u2019ll discuss how to build a culture of cost ownership within cloud teams \u2014 where every architectural decision directly impacts the invoice.\r\n\r\nBecause in the cloud, cost is not a finance problem.\r\nIt\u2019s an architectural decision.",
+      "StartsAt": "2026-09-23T17:40:00",
+      "EndsAt": "2026-09-23T18:30:00",
+      "IsServiceSession": false,
+      "speakers": [
+        "patrycja-stopka"
+      ],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "Plaza"
+    },
+    {
+      "Id": "eventdriven-devops-automating-azure-with-event-grid-system-topics",
+      "Title": "Event-Driven DevOps: Automating Azure with Event Grid System Topics",
+      "Description": "Modern DevOps on Azure isn\u2019t just about pipelines, it\u2019s about making your platform reactive. With Event Grid system topics, you can automatically respond to changes in your Azure environment, triggering workflows the moment resources are created, updated, or deleted.\r\n\r\nIn this session, we\u2019ll cover:\r\n- How system topics work and how they fit into DevOps workflows\r\n- Connecting Event Grid to various automation and orchestration tools\r\n- Different practical use cases for event-driven automation\r\n- A live demo where a resource change triggers a deployment-related automation\r\n\r\nAfter this session, you\u2019ll walk away with practical techniques to make your Azure platform more event-driven, reducing manual steps, closing feedback loops, and bringing DevOps automation to the next level.",
+      "StartsAt": "2026-09-23T17:40:00",
+      "EndsAt": "2026-09-23T18:30:00",
+      "IsServiceSession": false,
+      "speakers": [
+        "hans-muns"
+      ],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "Penthouse"
+    },
+    {
+      "Id": "building-intelligent-search-with-azure-ai-search",
+      "Title": "Building Intelligent Search with Azure AI Search",
+      "Description": "In this developer-focused, hands-on workshop, you\u2019ll build an intelligent search solution using Azure AI Search, powered by a dataset from The Office (US).\r\nWe\u2019ll move from raw data to AI-enriched discovery in a practical, end-to-end scenario. Starting with data exploration, you\u2019ll design and implement a robust ingestion pipeline, define and optimize search indexes, and understand how schema decisions affect relevance and ranking.\r\nFrom there, you\u2019ll enhance your solution with cognitive skills, extracting entities, key phrases, and insights to transform unstructured data into searchable gold.\r\nFinally, we\u2019ll extend the solution using Foundry IQ to add contextual intelligence and deeper reasoning on top of traditional search.\r\nBy the end of the session, you\u2019ll understand how to architect, build, and evolve an AI-powered search experience using Azure AI Search.",
+      "StartsAt": "2026-09-23T17:40:00",
+      "EndsAt": "2026-09-23T20:20:00",
+      "IsServiceSession": false,
+      "speakers": [
+        "stuart-van-der-lee",
+        "roelant-dieben"
+      ],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "The Garden"
+    },
+    {
+      "Id": "1547d64c-ccd1-4cb4-a518-f859a34e3ff5",
+      "Title": "Dinner",
+      "Description": null,
+      "StartsAt": "2026-09-23T18:30:00",
+      "EndsAt": "2026-09-23T19:30:00",
+      "IsServiceSession": true,
+      "speakers": [],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "Atrium"
+    },
+    {
+      "Id": "cloud-native-platform-engineering-on-azure",
+      "Title": "Cloud native platform engineering on Azure",
+      "Description": "Cloud native platform engineering starts with Kubernetes and the CNCF ecosystem, but it also needs to take sovereignty and control into account. In this session we look at how to design a self service engineering platform around cloud native principles built on Azure. The focus is on choosing the right tools for the right problem and bringing them together into a platform that enables self service, consistency, and clear boundaries.\r\n\r\nGeert will demo several tools from the cloud native ecosystem, including GitOps approaches, Argo CD, Crossplane, and Terranetes, and explain when to use each of them when building Azure Platforms. The session also discusses how sovereignty requirements and AI driven development influence platform design decisions. The result is a clearer understanding of how to combine Azure and cloud native tools into a practical platform architecture.",
+      "StartsAt": "2026-09-23T19:30:00",
+      "EndsAt": "2026-09-23T20:20:00",
+      "IsServiceSession": false,
+      "speakers": [
+        "geert-van-der-cruijsen"
+      ],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "Plaza"
+    },
+    {
+      "Id": "build-and-orchestrate-multiagent-workflows-using-microsoft-foundry-agent-service",
+      "Title": "Build and Orchestrate Multi-Agent Workflows Using Microsoft Foundry Agent Service",
+      "Description": "Modern AI solutions increasingly rely on multiple specialized agents working together across workflows, approvals, and business processes rather than a single assistant operating in isolation. Developers, ML engineers, and IT professionals need practical approaches to coordinate these agents using secure, scalable orchestration patterns without building complex backend services.\r\n\r\nIn this session, you\u2019ll learn how to build and orchestrate multi-agent workflows visually using Microsoft Foundry Agent Service through a live demonstration in the Foundry portal. We\u2019ll explore how specialized agents collaborate using orchestration patterns such as sequential pipelines, agent-to-agent coordination, and human-in-the-loop approval steps to support real-world automation scenarios.\r\n\r\nYou\u2019ll also see how Power Fx expressions enable branching workflow logic and variable handling directly within agent workflows, allowing you to control execution paths using a low-code approach. The session further demonstrates how agents can securely connect to tools and services using Microsoft Entra ID\u2013based identities and how agents can be reused across workflows as part of larger automation solutions.\r\n\r\nBy the end of this session, you\u2019ll understand how to implement coordinated multi-agent workflows using practical orchestration techniques that can be applied immediately in your own solutions.",
+      "StartsAt": "2026-09-23T19:30:00",
+      "EndsAt": "2026-09-23T20:20:00",
+      "IsServiceSession": false,
+      "speakers": [
+        "alpa-buddhabhatti"
+      ],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "Penthouse"
+    },
+    {
+      "Id": "041d1c37-2167-4730-9baa-2bcad60d71d8",
+      "Title": "Drinks",
+      "Description": null,
+      "StartsAt": "2026-09-23T20:20:00",
+      "EndsAt": "2026-09-23T21:00:00",
+      "IsServiceSession": true,
+      "speakers": [],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "Atrium"
+    }
+  ]
+}
