@@ -1,4 +1,4 @@
-import { getRegistrationDetailsByEmail } from "@/src/api/admitto";
+import { resolveRegistrationIdByEmail } from "@/src/api/admitto";
 import { errorResponse } from "@/src/api/route-errors";
 import { getRegistrationVipCodeFromRequest, hasRegistrationAccess } from "@/src/config/registration-access";
 
@@ -16,7 +16,7 @@ export async function GET(req: Request) {
       return Response.json({ message: "Missing email or verification token." }, { status: 400 });
     }
 
-    return Response.json(await getRegistrationDetailsByEmail(email, verificationToken));
+    return Response.json({ registrationId: await resolveRegistrationIdByEmail(email, verificationToken) });
   } catch (err) {
     return errorResponse(err);
   }

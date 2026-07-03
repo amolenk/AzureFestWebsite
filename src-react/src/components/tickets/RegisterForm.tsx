@@ -3,18 +3,17 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import ErrorCard from "../common/ErrorCard";
-import ExistingRegistrationOptions from "./ExistingRegistrationOptions";
 import MainConferenceForm from "./MainConferenceForm";
 import PersonalDetailsForm, { PersonalDetails } from "./PersonalDetailsForm";
 import SpinningButton from "../common/SpinningButton";
 import {
   AdmittoError,
-  getRegistrationDetailsByEmail,
   getTicketTypes,
   joinWaitlist,
-  register
+  register,
+  resolveRegistrationIdByEmail
 } from "../../api/admitto-client";
-import { hasCapacity, PartnerRegistrationDetailDto, PublicTicketTypeDto, requiresWaitlist } from "../../api/admitto-types";
+import { hasCapacity, PublicTicketTypeDto, requiresWaitlist } from "../../api/admitto-types";
 
 interface RegisterFormProps {
   email: string;
@@ -28,7 +27,6 @@ export default function RegisterForm({ email, token, registrationId, vipCode }: 
   const [loadingError, setLoadingError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submittingError, setSubmittingError] = useState("");
-  const [existingRegistrationId, setExistingRegistrationId] = useState(registrationId ?? "");
   const [ticketTypes, setTicketTypes] = useState<PublicTicketTypeDto[]>([]);
   const [details, setDetails] = useState<PersonalDetails>({
     firstName: "",
@@ -43,14 +41,15 @@ export default function RegisterForm({ email, token, registrationId, vipCode }: 
   useEffect(() => {
     async function fetchData() {
       if (registrationId) {
+        router.push(`/tickets/edit/${registrationId}`);
         setLoading(false);
         return;
       }
 
       try {
-        const registration = await getRegistrationDetailsByEmail(email, token, vipCode);
-        if (isActiveRegistration(registration)) {
-          setExistingRegistrationId(registration.id);
+        const resolvedRegistrationId = await resolveRegistrationIdByEmail(email, token, vipCode);
+        if (resolvedRegistrationId) {
+          router.push(`/tickets/edit/${resolvedRegistrationId}`);
           setLoading(false);
           return;
         }
@@ -59,13 +58,18 @@ export default function RegisterForm({ email, token, registrationId, vipCode }: 
         setTicketTypes(types);
         setLoading(false);
       } catch (err: any) {
+        if (err instanceof AdmittoError && err.code === "email.verification_invalid") {
+          router.push("/tickets/register/expired");
+          return;
+        }
+
         setLoadingError(err.message || "Could not fetch ticket availability.");
         setLoading(false);
       }
     }
 
     fetchData();
-  }, [email, registrationId, token, vipCode]);
+  }, [email, registrationId, router, token, vipCode]);
 
   useEffect(() => {
     if (email === "" || token === "") {
@@ -117,15 +121,15 @@ export default function RegisterForm({ email, token, registrationId, vipCode }: 
         router.push("/tickets/register/expired");
       } else if (err instanceof AdmittoError && err.registrationId) {
         setSubmitting(false);
-        setExistingRegistrationId(err.registrationId);
+        router.push(`/tickets/edit/${err.registrationId}`);
       } else if (err instanceof AdmittoError && err.code === "attendee.already_registered") {
-        const registration = await getRegistrationDetailsByEmail(email, token, vipCode);
+        const resolvedRegistrationId = await resolveRegistrationIdByEmail(email, token, vipCode);
         setSubmitting(false);
 
-        if (isActiveRegistration(registration)) {
-          setExistingRegistrationId(registration.id);
+        if (resolvedRegistrationId) {
+          router.push(`/tickets/edit/${resolvedRegistrationId}`);
         } else {
-          setSubmittingError("You are already registered, but we could not load your registration details. Please try again.");
+          setSubmittingError("You are already registered. Please use the link in your ticket email to manage your registration.");
         }
       } else {
         setSubmitting(false);
@@ -150,10 +154,6 @@ export default function RegisterForm({ email, token, registrationId, vipCode }: 
 
   if (loadingError) {
     return <ErrorCard error={loadingError} />;
-  }
-
-  if (existingRegistrationId) {
-    return <ExistingRegistrationOptions email={email} registrationId={existingRegistrationId} />;
   }
 
   return (
@@ -187,10 +187,4 @@ export default function RegisterForm({ email, token, registrationId, vipCode }: 
       </form>
     </div>
   );
-}
-
-function isActiveRegistration(
-  registration: PartnerRegistrationDetailDto | null
-): registration is PartnerRegistrationDetailDto {
-  return !!registration?.id && registration.status !== "cancelled";
 }

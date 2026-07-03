@@ -1,11 +1,13 @@
 export class AdmittoError extends Error {
   code?: string;
   registrationId?: string;
+  statusCode?: number;
 
-  constructor(message: string, code?: string, registrationId?: string) {
+  constructor(message: string, code?: string, registrationId?: string, statusCode?: number) {
     super(message);
     this.code = code;
     this.registrationId = registrationId;
+    this.statusCode = statusCode;
   }
 }
 
@@ -24,6 +26,7 @@ export interface PartnerRegistrationDetailDto {
   firstName: string;
   lastName: string;
   status: "registered" | "cancelled" | null;
+  ticketTypeIds: string[];
   tickets: PartnerTicketDetailDto[];
   additionalDetails: Record<string, string>;
 }

@@ -45,12 +45,12 @@ export async function verifyOtp(email: string, code: string): Promise<VerifyOtpR
   return { token };
 }
 
-export async function getRegistrationDetailsByEmail(
+export async function resolveRegistrationIdByEmail(
   email: string,
   verificationToken: string
-): Promise<PartnerRegistrationDetailDto | null> {
+): Promise<string | null> {
   const params = new URLSearchParams({ email: email.trim() });
-  const url = `${getEventUrl()}/registrations?${params.toString()}`;
+  const url = `${getEventUrl()}/registrations/resolve?${params.toString()}`;
   const res = await fetch(url, {
     headers: {
       ...getApiKeyHeaders(),
@@ -58,19 +58,83 @@ export async function getRegistrationDetailsByEmail(
     }
   });
 
-  if (res.status === 404) {
+  if (res.status === 404 || res.status === 204) {
     return null;
   }
 
   if (!res.ok) {
     const errorData = await res.json().catch(() => ({}));
     throw new AdmittoError(
-      errorData?.detail || "Failed to fetch registration details.",
-      errorData?.code ?? errorData?.errorCode
+      errorData?.detail || "Failed to resolve registration.",
+      errorData?.code ?? errorData?.errorCode,
+      undefined,
+      res.status
     );
   }
 
+  const text = await res.text();
+  if (!text) {
+    return null;
+  }
+
+  let data: unknown;
+  try {
+    data = JSON.parse(text) as unknown;
+  } catch {
+    return text;
+  }
+
+  if (typeof data === "string") {
+    return data;
+  }
+
+  if (typeof data === "object" && data !== null) {
+    const registration = data as { registrationId?: string; id?: string };
+    return registration.registrationId ?? registration.id ?? null;
+  }
+
+  return null;
+}
+
+export async function getRegistrationDetails(registrationId: string): Promise<PartnerRegistrationDetailDto> {
+  const url = `${getEventUrl()}/registrations/${encodeURIComponent(registrationId)}`;
+  const res = await fetch(url, {
+    headers: getApiKeyHeaders()
+  });
+
+  if (res.status === 404) {
+    throw new AdmittoError("Registration not found.", undefined, registrationId, 404);
+  }
+
+  if (!res.ok) {
+    throw await admittoErrorFromResponse(res, "Failed to fetch registration details.");
+  }
+
   return (await res.json()) as PartnerRegistrationDetailDto;
+}
+
+export async function updateRegistration(
+  registrationId: string,
+  firstName: string,
+  lastName: string,
+  ticketTypeIds: string[] | null,
+  additionalDetails: Record<string, string>
+) {
+  const url = `${getEventUrl()}/registrations/${encodeURIComponent(registrationId)}`;
+  const res = await fetch(url, {
+    method: "PUT",
+    headers: { ...getApiKeyHeaders(), "Content-Type": "application/json" },
+    body: JSON.stringify({
+      firstName,
+      lastName,
+      ticketTypeIds,
+      additionalDetails
+    })
+  });
+
+  if (!res.ok) {
+    throw await admittoErrorFromResponse(res, "Registration update failed.");
+  }
 }
 
 export async function register(
@@ -100,50 +164,32 @@ export async function register(
     })
   });
   if (!res.ok) {
-    const errorData = await res.json().catch(() => ({}));
+    const errorData = await readAdmittoError(res);
 
     if (res.status === 409) {
+      const conflict = typeof errorData === "string" ? {} : errorData;
       throw new AdmittoError(
         "You are already registered for this event. Check your email for your registration management link.",
-        errorData?.code ?? errorData?.errorCode ?? "attendee.already_registered"
+        conflict.code ?? conflict.errorCode ?? "attendee.already_registered",
+        conflict.registrationId,
+        409
       );
     }
 
-    throw new AdmittoError(
-      errorData?.detail || "Registration failed.",
-      errorData?.code ?? errorData?.errorCode
-    );
+    throw admittoErrorFromData(errorData, res.status, "Registration failed.");
   }
   return true;
 }
 
 export async function cancel(registrationId: string) {
-  const url = `${getEventUrl()}/registrations/${registrationId}/cancel`;
+  const url = `${getEventUrl()}/registrations/${encodeURIComponent(registrationId)}/cancel`;
   const res = await fetch(url, {
     method: "POST",
     headers: getApiKeyHeaders()
   });
   if (!res.ok) {
-    const errorData = await res.json().catch(() => ({}));
-    throw new Error(errorData?.detail || "Cancellation failed.");
+    throw await admittoErrorFromResponse(res, "Cancellation failed.");
   }
-}
-
-export async function changeTickets(registrationId: string, ticketTypeIds: string[]) {
-  const url = `${getEventUrl()}/registrations/${registrationId}/tickets`;
-  const res = await fetch(url, {
-    method: "PUT",
-    headers: { ...getApiKeyHeaders(), "Content-Type": "application/json" },
-    body: JSON.stringify({ ticketTypeIds })
-  });
-  if (!res.ok) {
-    const errorData = await res.json().catch(() => ({}));
-    throw new AdmittoError(
-      errorData?.detail || "Registration update failed.",
-      errorData?.code ?? errorData?.errorCode
-    );
-  }
-  return true;
 }
 
 export async function joinWaitlist(ticketTypeId: string, email: string, verificationToken?: string) {
@@ -158,22 +204,50 @@ export async function joinWaitlist(ticketTypeId: string, email: string, verifica
     body: JSON.stringify({ email })
   });
   if (!res.ok) {
-    const errorData = await res.json().catch(() => ({}));
-    throw new AdmittoError(errorData?.detail || "Failed to join waitlist.", errorData?.code ?? errorData?.errorCode);
+    throw await admittoErrorFromResponse(res, "Failed to join waitlist.");
   }
 }
 
 export async function resendTicketConfirmation(registrationId: string) {
-  const url = `${getEventUrl()}/registrations/${registrationId}/ticket-email/resend`;
+  const url = `${getEventUrl()}/registrations/${encodeURIComponent(registrationId)}/ticket-email/resend`;
   const res = await fetch(url, {
     method: "POST",
     headers: getApiKeyHeaders()
   });
 
   if (!res.ok) {
-    const errorData = await res.json().catch(() => ({}));
-    throw new Error(errorData?.detail || "Failed to resend ticket confirmation email.");
+    throw await admittoErrorFromResponse(res, "Failed to resend ticket confirmation email.");
   }
+}
+
+async function admittoErrorFromResponse(res: Response, fallbackMessage: string): Promise<AdmittoError> {
+  return admittoErrorFromData(await readAdmittoError(res), res.status, fallbackMessage);
+}
+
+async function readAdmittoError(res: Response): Promise<{ detail?: string; message?: string; code?: string; errorCode?: string; registrationId?: string } | string> {
+  const contentType = res.headers.get("content-type") ?? "";
+  if (contentType.includes("application/json") || contentType.includes("application/problem+json")) {
+    return await res.json().catch(() => ({}));
+  }
+
+  return await res.text().catch(() => "");
+}
+
+function admittoErrorFromData(
+  data: { detail?: string; message?: string; code?: string; errorCode?: string; registrationId?: string } | string,
+  statusCode: number,
+  fallbackMessage: string
+): AdmittoError {
+  if (typeof data === "string") {
+    return new AdmittoError(data || fallbackMessage, undefined, undefined, statusCode);
+  }
+
+  return new AdmittoError(
+    data.detail || data.message || fallbackMessage,
+    data.code ?? data.errorCode,
+    data.registrationId,
+    statusCode
+  );
 }
 
 function getEventUrl(): string {
