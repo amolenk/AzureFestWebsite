@@ -94,9 +94,9 @@ export const websiteSettings: WebsiteSettings = {
             timeZone: "+02:00"
         },
         registration: {
-            opensAt: new Date("2026-06-08T00:00:00+02:00"),
+            opensAt: new Date("2026-07-03T16:00:00+02:00"),
             closesAt: new Date("2026-09-22T23:59:59+02:00"),
-            enabled: false,
+            enabled: true,
             isOpen: function () {
                 const now = new Date();
                 return this.enabled && now >= this.opensAt && now <= this.closesAt;
