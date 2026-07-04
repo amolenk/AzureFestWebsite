@@ -44,7 +44,9 @@ jobs:
           mkdir -p deploy
           cp -aL src-react/.next/standalone/. deploy/
           cp -a  src-react/.next/static/. deploy/.next/static/
-          cp -a  src-react/public deploy/public
+          mkdir -p deploy/public
+          cp -a  src-react/public/. deploy/public/
+          test -f deploy/public/img/2026/speakers/alpa-buddhabhatti.jpg
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
@@ -80,4 +82,3 @@ jobs:
           app-name: 'azure-fest'
           slot-name: 'Production'
           package: .
-          
