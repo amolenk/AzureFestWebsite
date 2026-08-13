@@ -45,6 +45,17 @@
       ]
     },
     {
+      "Id": "marcel-de-vries",
+      "FullName": "Marcel de Vries",
+      "Bio": "Marcel is the co-founder and Global MD \u0026 CTO Xebia Microsoft Services. Xebia Microsoft Services started as an individual company under the Xebia group in 2014 and provides high-end consulting services to companies on Microsoft Azure, DevOps, Cloud Native Software Development, and Managed Services. \r\n\r\nMarcel spends most of his time working with organizations to deliver software to production multiple times a day in a secure and compliant way! He helps organizations and leadership teams move to become high-speed, innovative, and productive while still being secure and compliant. \r\n\r\nMarcel loves to learn new technologies and use this to advance his customers. He shares his learnings at conferences and training. Marcel has the conviction the CEO title in technology companies should have a second meaning: Coding Executive Officer. This is driven by his strong belief that great leaders in tech need to be technical! Only by staying on top of technology, you can lead the way going forward. \r\n\r\nMarcel is a frequently asked public speaker at well-known industry events like Microsoft //Build, Microsoft Ignite, Azure Lowlands, Visual Studio Live!, Techorama, and KCDC, to name a few.\r\n\r\nMarcel is part of the Techorama board and helps organize this event in Europe. In his spare time, he also builds online courses for Pluralsight. You can find his courses here: https://app.pluralsight.com/profile/author/marcel-devries\r\n\r\nMarcel has been awarded by Microsoft the Microsoft MVP award for more than 17 consecutive years and has been a Microsoft Regional Director since 2008.  You can always contact him to talk about subjects like Cloud Adoption Strategies, Business Development, DevOps, Cloud Computing, Microservices, Containers, IaaS, PaaS, and SaaS.",
+      "TagLine": "Global MD \u0026 CTO Xebia Microsoft Services",
+      "IsTopSpeaker": false,
+      "ProfilePictureUrl": "img/2026/speakers/marcel-de-vries.png",
+      "sessions": [
+        "dont-automate-the-past-rethinking-what-we-can-make-possible-with-azure-and-ai"
+      ]
+    },
+    {
       "Id": "patrycja-stopka",
       "FullName": "Patrycja Stopka",
       "Bio": "I am a Cloud Engineer working at Sopra Steria, with 10 years of experience in IT and 5 years specializing in Microsoft technologies, mainly Windows Server and Azure.\r\n\r\nMy work focuses on building and managing environments in Microsoft Azure, both through traditional methods and automation. I\u2019m also responsible for cloud projects that improve my customers\u2019 environments.\r\n\r\nI\u2019m passionate about gaining hands-on experience and continuously developing my practical cloud skills. I also enjoy sharing what I\u2019ve learned \u2014 which is why I work as an internal tutor in my company, helping colleagues prepare for cloud certification exams.\r\n\r\nFields of Expertise\r\n\r\nCloud\r\n\u2022\tDeployment and management of both on-premises and Azure cloud environments\r\n\u2022\tCloud financial management (FinOps practices)\r\n\u2022\tCreation and customization of Azure policies and governance standards\r\n\r\nEntra ID\r\n\u2022\tIdentity and access management in Microsoft Entra ID\r\n\u2022\tApplication deployment and management\r\n\r\nDevOps\r\n\u2022\tCI/CD \u2013 implementation and maintenance of pipelines in Azure DevOps\r\n\u2022\tInfrastructure management and automation using Terraform\r\n\r\nCertification\r\nAZ-900 Microsoft Certified: Azure Fundamentals\r\nAZ-104 Microsoft Certified: Azure Administrator Associate\r\nAZ-305 Microsoft Certified: Azure Solutions Architect Expert\r\nAZ-800 Microsoft Certified: DevOps Engineer Expert\r\nSC-300 Microsoft Certified: Identity and Access Administrator Associate\r\n",
@@ -124,7 +135,7 @@
   ],
   "Sessions": [
     {
-      "Id": "8aa8f803-1702-48ff-8f13-25c109ce2d03",
+      "Id": "5c6eea53-3c2b-4364-ba19-8f3d0a0b53ce",
       "Title": "Registration",
       "Description": null,
       "StartsAt": "2026-09-23T13:00:00",
@@ -136,13 +147,27 @@
       "Room": "Atrium"
     },
     {
-      "Id": "6a6dde55-3c04-473a-bf85-11fa85727aa0",
+      "Id": "e8902c81-b60b-4688-80a1-8fe5caa52a80",
       "Title": "Welcome",
       "Description": null,
       "StartsAt": "2026-09-23T13:45:00",
       "EndsAt": "2026-09-23T14:00:00",
       "IsServiceSession": true,
       "speakers": [],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "Plaza"
+    },
+    {
+      "Id": "dont-automate-the-past-rethinking-what-we-can-make-possible-with-azure-and-ai",
+      "Title": "Don\u2019t Automate the Past: Rethinking What We Can Make Possible with Azure and AI",
+      "Description": "We have a habit of using new technology to optimize the world we already know. We moved datacenters to the cloud, digitized existing processes, and are now asking AI to perform the same work a little faster.\r\n\r\nBut what if the real opportunity is not automation, but reinvention?\r\n\r\nAI is becoming an intelligence layer across the organization: supporting individual productivity, understanding business data and processes, powering new products, and increasingly taking action through agents. With Azure, Microsoft Foundry, Fabric, and the wider Microsoft Cloud, organizations can combine model choice with the context, governance, and controls needed to apply that intelligence at enterprise scale.\r\nYet technology alone does not create transformation. Our existing experience, organizational structures, and understandable desire for control can prevent us from seeing what has become possible.\r\n\r\nIn this keynote, we\u2019ll examine the human patterns that cause us to dismiss or domesticate disruptive technology. We\u2019ll explore how Azure and AI are changing the possibilities across work, business processes, platforms, and products, and why sovereignty, governance, and platform engineering are not barriers to that future, but essential foundations for building it.\r\n\r\nThe question is no longer simply what AI can do. It is what we are prepared to rethink",
+      "StartsAt": "2026-09-23T14:00:00",
+      "EndsAt": "2026-09-23T15:00:00",
+      "IsServiceSession": false,
+      "speakers": [
+        "marcel-de-vries"
+      ],
       "SessionFormat": null,
       "Level": null,
       "Room": "Plaza"
@@ -190,7 +215,7 @@
       "Room": "The Garden"
     },
     {
-      "Id": "ea255743-514a-47ee-a87a-b899e4eb57b3",
+      "Id": "63546ad2-0517-40f8-bb52-c2808a33ce58",
       "Title": "Break",
       "Description": null,
       "StartsAt": "2026-09-23T16:05:00",
@@ -273,7 +298,7 @@
       "Room": "The Garden"
     },
     {
-      "Id": "b6df2d07-2d9f-4c4e-86b0-69fa1be685ca",
+      "Id": "c9af2501-fc24-4465-9339-2d6335728888",
       "Title": "Dinner",
       "Description": null,
       "StartsAt": "2026-09-23T18:30:00",
@@ -313,7 +338,7 @@
       "Room": "Penthouse"
     },
     {
-      "Id": "f2c050da-ef52-45bd-9c8d-05e778bbee3b",
+      "Id": "5876c19f-351b-466e-9287-609b556bb2d7",
       "Title": "Drinks",
       "Description": null,
       "StartsAt": "2026-09-23T20:20:00",
