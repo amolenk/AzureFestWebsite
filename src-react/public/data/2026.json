@@ -74,7 +74,8 @@
       "IsTopSpeaker": false,
       "ProfilePictureUrl": "img/2026/speakers/roelant-dieben.jpg",
       "sessions": [
-        "building-intelligent-search-with-azure-ai-search"
+        "building-intelligent-search-with-azure-ai-search-part-1",
+        "building-intelligent-search-with-azure-ai-search-part-2"
       ]
     },
     {
@@ -85,7 +86,8 @@
       "IsTopSpeaker": false,
       "ProfilePictureUrl": "img/2026/speakers/stuart-van-der-lee.jpg",
       "sessions": [
-        "building-intelligent-search-with-azure-ai-search"
+        "building-intelligent-search-with-azure-ai-search-part-1",
+        "building-intelligent-search-with-azure-ai-search-part-2"
       ]
     },
     {
@@ -96,7 +98,8 @@
       "IsTopSpeaker": false,
       "ProfilePictureUrl": "img/2026/speakers/tobias-massoth.png",
       "sessions": [
-        "azure-sre-agent-workshop"
+        "azure-sre-agent-workshop-part-1",
+        "azure-sre-agent-workshop-part-2"
       ]
     },
     {
@@ -135,7 +138,7 @@
   ],
   "Sessions": [
     {
-      "Id": "8f2198a7-98e8-495f-85c1-bbb3f1e09433",
+      "Id": "54fc2d7b-558d-49f4-84e5-56cd5ecd722b",
       "Title": "Registration",
       "Description": null,
       "StartsAt": "2026-09-23T13:00:00",
@@ -147,7 +150,7 @@
       "Room": "Atrium"
     },
     {
-      "Id": "ea78af4d-b495-41eb-8ce9-656d288ec41e",
+      "Id": "5787985d-a029-4453-b79a-b94c0b784a26",
       "Title": "Welcome",
       "Description": null,
       "StartsAt": "2026-09-23T13:45:00",
@@ -201,11 +204,11 @@
       "Room": "Penthouse"
     },
     {
-      "Id": "azure-sre-agent-workshop",
-      "Title": "Azure SRE Agent Workshop",
+      "Id": "azure-sre-agent-workshop-part-1",
+      "Title": "Azure SRE Agent Workshop (Part 1)",
       "Description": "In this workshop you will gain first experiences with Azure SRE Agent - your AI buddy-engineer. \r\nWe will first cover some basics about Azure SRE Agent and talk about the scenario and the architecture of the application landscape. Once we have completed the intro part, you will deploy the environment mainly in an automated way based on clear instructions.\r\nOnce this has been completed, you will create incidents and see what the Azure SRE Agent will be doing.\r\nAt certain milestones, we will stop and discuss what happened.\r\n\r\nFor the quick-clickers, there will be additional, optional tasks available. So, no time to get bored.\r\n\r\nPrerequisites:\r\n- Ideally a notebook\r\n- Internet access\r\n- Bring your own Azure subscription \u0026 budget (should not exceed 20 EUR, maybe we will have sponsorship by Microsoft - in clarification)",
       "StartsAt": "2026-09-23T15:15:00",
-      "EndsAt": "2026-09-23T17:25:00",
+      "EndsAt": "2026-09-23T16:05:00",
       "IsServiceSession": false,
       "speakers": [
         "tobias-massoth"
@@ -215,7 +218,7 @@
       "Room": "The Garden"
     },
     {
-      "Id": "62a05277-d412-46b8-95f6-610cb3cae35f",
+      "Id": "85770701-6d9d-48cc-a190-0dfc964d2c73",
       "Title": "Break",
       "Description": null,
       "StartsAt": "2026-09-23T16:05:00",
@@ -255,6 +258,20 @@
       "Room": "Penthouse"
     },
     {
+      "Id": "azure-sre-agent-workshop-part-2",
+      "Title": "Azure SRE Agent Workshop (Part 2)",
+      "Description": "In this workshop you will gain first experiences with Azure SRE Agent - your AI buddy-engineer. \r\nWe will first cover some basics about Azure SRE Agent and talk about the scenario and the architecture of the application landscape. Once we have completed the intro part, you will deploy the environment mainly in an automated way based on clear instructions.\r\nOnce this has been completed, you will create incidents and see what the Azure SRE Agent will be doing.\r\nAt certain milestones, we will stop and discuss what happened.\r\n\r\nFor the quick-clickers, there will be additional, optional tasks available. So, no time to get bored.\r\n\r\nPrerequisites:\r\n- Ideally a notebook\r\n- Internet access\r\n- Bring your own Azure subscription \u0026 budget (should not exceed 20 EUR, maybe we will have sponsorship by Microsoft - in clarification)",
+      "StartsAt": "2026-09-23T16:35:00",
+      "EndsAt": "2026-09-23T17:25:00",
+      "IsServiceSession": false,
+      "speakers": [
+        "tobias-massoth"
+      ],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "The Garden"
+    },
+    {
       "Id": "avnm-governing-and-scaling-virtual-networks-the-right-way",
       "Title": "AVNM: Governing and Scaling Virtual Networks the Right Way",
       "Description": "Managing a handful of Azure virtual networks is straightforward. Managing dozens across multiple subscriptions, teams, and regions, without losing control of your security posture or drowning in manual peering configurations, is a different problem entirely. Azure Virtual Network Manager was built for exactly that, yet many teams either don\u0027t know it exists or find the docs confusing.\r\n\r\nIn this session, we go deep. You\u0027ll get a clear picture of AVNM\u0027s architecture: network groups, connectivity configurations, and security admin rules. But also, how they compose into a governance model that actually scales. We\u0027ll cover where AVNM fits into a Landing Zone design, how Azure Policy drives dynamic group membership, and where the boundaries lie. Architecture diagrams, live demos, and real deployment decisions included.",
@@ -283,11 +300,11 @@
       "Room": "Penthouse"
     },
     {
-      "Id": "building-intelligent-search-with-azure-ai-search",
-      "Title": "Building Intelligent Search with Azure AI Search",
+      "Id": "building-intelligent-search-with-azure-ai-search-part-1",
+      "Title": "Building Intelligent Search with Azure AI Search ( Part 1)",
       "Description": "In this developer-focused, hands-on workshop, you\u2019ll build an intelligent search solution using Azure AI Search, powered by a dataset from The Office (US).\r\nWe\u2019ll move from raw data to AI-enriched discovery in a practical, end-to-end scenario. Starting with data exploration, you\u2019ll design and implement a robust ingestion pipeline, define and optimize search indexes, and understand how schema decisions affect relevance and ranking.\r\nFrom there, you\u2019ll enhance your solution with cognitive skills, extracting entities, key phrases, and insights to transform unstructured data into searchable gold.\r\nFinally, we\u2019ll extend the solution using Foundry IQ to add contextual intelligence and deeper reasoning on top of traditional search.\r\nBy the end of the session, you\u2019ll understand how to architect, build, and evolve an AI-powered search experience using Azure AI Search.",
       "StartsAt": "2026-09-23T17:40:00",
-      "EndsAt": "2026-09-23T20:20:00",
+      "EndsAt": "2026-09-23T18:30:00",
       "IsServiceSession": false,
       "speakers": [
         "stuart-van-der-lee",
@@ -298,7 +315,7 @@
       "Room": "The Garden"
     },
     {
-      "Id": "37ebf1ed-2aa3-4ffa-833b-66b53628b70c",
+      "Id": "17277885-a79a-4957-b7e1-ebcde2bcb692",
       "Title": "Dinner",
       "Description": null,
       "StartsAt": "2026-09-23T18:30:00",
@@ -338,7 +355,22 @@
       "Room": "Penthouse"
     },
     {
-      "Id": "4c67bf31-4509-4115-a0f5-dfe9fd4b9355",
+      "Id": "building-intelligent-search-with-azure-ai-search-part-2",
+      "Title": "Building Intelligent Search with Azure AI Search ( Part 2)",
+      "Description": "In this developer-focused, hands-on workshop, you\u2019ll build an intelligent search solution using Azure AI Search, powered by a dataset from The Office (US).\r\nWe\u2019ll move from raw data to AI-enriched discovery in a practical, end-to-end scenario. Starting with data exploration, you\u2019ll design and implement a robust ingestion pipeline, define and optimize search indexes, and understand how schema decisions affect relevance and ranking.\r\nFrom there, you\u2019ll enhance your solution with cognitive skills, extracting entities, key phrases, and insights to transform unstructured data into searchable gold.\r\nFinally, we\u2019ll extend the solution using Foundry IQ to add contextual intelligence and deeper reasoning on top of traditional search.\r\nBy the end of the session, you\u2019ll understand how to architect, build, and evolve an AI-powered search experience using Azure AI Search.",
+      "StartsAt": "2026-09-23T19:30:00",
+      "EndsAt": "2026-09-23T20:20:00",
+      "IsServiceSession": false,
+      "speakers": [
+        "stuart-van-der-lee",
+        "roelant-dieben"
+      ],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "The Garden"
+    },
+    {
+      "Id": "0ff971df-cf61-4524-a1d4-de8363353047",
       "Title": "Drinks",
       "Description": null,
       "StartsAt": "2026-09-23T20:20:00",
