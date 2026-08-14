@@ -135,7 +135,7 @@
   ],
   "Sessions": [
     {
-      "Id": "5c6eea53-3c2b-4364-ba19-8f3d0a0b53ce",
+      "Id": "8f2198a7-98e8-495f-85c1-bbb3f1e09433",
       "Title": "Registration",
       "Description": null,
       "StartsAt": "2026-09-23T13:00:00",
@@ -147,7 +147,7 @@
       "Room": "Atrium"
     },
     {
-      "Id": "e8902c81-b60b-4688-80a1-8fe5caa52a80",
+      "Id": "ea78af4d-b495-41eb-8ce9-656d288ec41e",
       "Title": "Welcome",
       "Description": null,
       "StartsAt": "2026-09-23T13:45:00",
@@ -173,14 +173,14 @@
       "Room": "Plaza"
     },
     {
-      "Id": "where-water-isnt-guaranteed-azure-ai-and-iot-for-africas-last-mile",
-      "Title": "Where Water Isn\u2019t Guaranteed: Azure, AI and IoT for Africa\u2019s Last Mile",
-      "Description": "Most cloud-based solutions are based on the assumption that users are mostly online, devices report on time, notifications arrive, things like location on a map are understood by users, and identity verification just works.\r\n\r\nJila.ai was built for a different reality: water tanks in most of Africa where water supply is intermittent, mobile data is expensive, users often keep data off, phone numbers matter more than email, OTP delivery can fail by operator, GPS pins are not well understood by users, and IoT devices must preserve battery due to frequent electricity blackouts while buffering telemetry until connectivity returns.\r\n\r\nIn this session, I will share lessons from building Jila, a water reliability platform using Azure as its cloud backbone. We will look at how raw tank readings become meaningful events such as alerts, refill detection, device-offline signals, P2P marketplace triggers, and operational intelligence for households and organizations.\r\n\r\nWe will also explore where AI becomes useful beyond the buzzword. For Jila, AI is not about adding a chatbot to an app. It is about using time-series prediction to answer practical questions: when will the tank run out, when is the next refill likely so users  can call a water truck on time, how long can the device sleep without harming the user experience, and how can battery behavior be predicted under local conditions? Time-series foundation models such as TimeGPT are increasingly positioned for forecasting and anomaly detection, including IoT sensor data, which makes this an interesting new layer for products like Jila.\r\n\r\nThis is a practical and reflective session about Azure IoT, event-driven architecture, offline-first product design, notification fallbacks, geospatial workflows, AI-assisted forecasting, and building cloud systems that still work when the last mile is messy.",
+      "Id": "build-and-orchestrate-multiagent-workflows-using-microsoft-foundry-agent-service",
+      "Title": "Build and Orchestrate Multi-Agent Workflows Using Microsoft Foundry Agent Service",
+      "Description": "Modern AI solutions increasingly rely on multiple specialized agents working together across workflows, approvals, and business processes rather than a single assistant operating in isolation. Developers, ML engineers, and IT professionals need practical approaches to coordinate these agents using secure, scalable orchestration patterns without building complex backend services.\r\n\r\nIn this session, you\u2019ll learn how to build and orchestrate multi-agent workflows visually using Microsoft Foundry Agent Service through a live demonstration in the Foundry portal. We\u2019ll explore how specialized agents collaborate using orchestration patterns such as sequential pipelines, agent-to-agent coordination, and human-in-the-loop approval steps to support real-world automation scenarios.\r\n\r\nYou\u2019ll also see how Power Fx expressions enable branching workflow logic and variable handling directly within agent workflows, allowing you to control execution paths using a low-code approach. The session further demonstrates how agents can securely connect to tools and services using Microsoft Entra ID\u2013based identities and how agents can be reused across workflows as part of larger automation solutions.\r\n\r\nBy the end of this session, you\u2019ll understand how to implement coordinated multi-agent workflows using practical orchestration techniques that can be applied immediately in your own solutions.",
       "StartsAt": "2026-09-23T15:15:00",
       "EndsAt": "2026-09-23T16:05:00",
       "IsServiceSession": false,
       "speakers": [
-        "dionisio-nunes"
+        "alpa-buddhabhatti"
       ],
       "SessionFormat": null,
       "Level": null,
@@ -215,7 +215,7 @@
       "Room": "The Garden"
     },
     {
-      "Id": "63546ad2-0517-40f8-bb52-c2808a33ce58",
+      "Id": "62a05277-d412-46b8-95f6-610cb3cae35f",
       "Title": "Break",
       "Description": null,
       "StartsAt": "2026-09-23T16:05:00",
@@ -225,6 +225,20 @@
       "SessionFormat": null,
       "Level": null,
       "Room": "Atrium"
+    },
+    {
+      "Id": "where-water-isnt-guaranteed-azure-ai-and-iot-for-africas-last-mile",
+      "Title": "Where Water Isn\u2019t Guaranteed: Azure, AI and IoT for Africa\u2019s Last Mile",
+      "Description": "Most cloud-based solutions are based on the assumption that users are mostly online, devices report on time, notifications arrive, things like location on a map are understood by users, and identity verification just works.\r\n\r\nJila.ai was built for a different reality: water tanks in most of Africa where water supply is intermittent, mobile data is expensive, users often keep data off, phone numbers matter more than email, OTP delivery can fail by operator, GPS pins are not well understood by users, and IoT devices must preserve battery due to frequent electricity blackouts while buffering telemetry until connectivity returns.\r\n\r\nIn this session, I will share lessons from building Jila, a water reliability platform using Azure as its cloud backbone. We will look at how raw tank readings become meaningful events such as alerts, refill detection, device-offline signals, P2P marketplace triggers, and operational intelligence for households and organizations.\r\n\r\nWe will also explore where AI becomes useful beyond the buzzword. For Jila, AI is not about adding a chatbot to an app. It is about using time-series prediction to answer practical questions: when will the tank run out, when is the next refill likely so users  can call a water truck on time, how long can the device sleep without harming the user experience, and how can battery behavior be predicted under local conditions? Time-series foundation models such as TimeGPT are increasingly positioned for forecasting and anomaly detection, including IoT sensor data, which makes this an interesting new layer for products like Jila.\r\n\r\nThis is a practical and reflective session about Azure IoT, event-driven architecture, offline-first product design, notification fallbacks, geospatial workflows, AI-assisted forecasting, and building cloud systems that still work when the last mile is messy.",
+      "StartsAt": "2026-09-23T16:35:00",
+      "EndsAt": "2026-09-23T17:25:00",
+      "IsServiceSession": false,
+      "speakers": [
+        "dionisio-nunes"
+      ],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "Plaza"
     },
     {
       "Id": "from-noise-to-signal-building-meaningful-slis-in-azure",
@@ -238,21 +252,21 @@
       ],
       "SessionFormat": null,
       "Level": null,
-      "Room": "Plaza"
+      "Room": "Penthouse"
     },
     {
       "Id": "avnm-governing-and-scaling-virtual-networks-the-right-way",
       "Title": "AVNM: Governing and Scaling Virtual Networks the Right Way",
       "Description": "Managing a handful of Azure virtual networks is straightforward. Managing dozens across multiple subscriptions, teams, and regions, without losing control of your security posture or drowning in manual peering configurations, is a different problem entirely. Azure Virtual Network Manager was built for exactly that, yet many teams either don\u0027t know it exists or find the docs confusing.\r\n\r\nIn this session, we go deep. You\u0027ll get a clear picture of AVNM\u0027s architecture: network groups, connectivity configurations, and security admin rules. But also, how they compose into a governance model that actually scales. We\u0027ll cover where AVNM fits into a Landing Zone design, how Azure Policy drives dynamic group membership, and where the boundaries lie. Architecture diagrams, live demos, and real deployment decisions included.",
-      "StartsAt": "2026-09-23T16:35:00",
-      "EndsAt": "2026-09-23T17:25:00",
+      "StartsAt": "2026-09-23T17:40:00",
+      "EndsAt": "2026-09-23T18:30:00",
       "IsServiceSession": false,
       "speakers": [
         "vladimir-stefanovic"
       ],
       "SessionFormat": null,
       "Level": null,
-      "Room": "Penthouse"
+      "Room": "Plaza"
     },
     {
       "Id": "the-cost-report-the-dashboard-you-open-with-fear",
@@ -263,20 +277,6 @@
       "IsServiceSession": false,
       "speakers": [
         "patrycja-stopka"
-      ],
-      "SessionFormat": null,
-      "Level": null,
-      "Room": "Plaza"
-    },
-    {
-      "Id": "eventdriven-devops-automating-azure-with-event-grid-system-topics",
-      "Title": "Event-Driven DevOps: Automating Azure with Event Grid System Topics",
-      "Description": "Modern DevOps on Azure isn\u2019t just about pipelines, it\u2019s about making your platform reactive. With Event Grid system topics, you can automatically respond to changes in your Azure environment, triggering workflows the moment resources are created, updated, or deleted.\r\n\r\nIn this session, we\u2019ll cover:\r\n- How system topics work and how they fit into DevOps workflows\r\n- Connecting Event Grid to various automation and orchestration tools\r\n- Different practical use cases for event-driven automation\r\n- A live demo where a resource change triggers a deployment-related automation\r\n\r\nAfter this session, you\u2019ll walk away with practical techniques to make your Azure platform more event-driven, reducing manual steps, closing feedback loops, and bringing DevOps automation to the next level.",
-      "StartsAt": "2026-09-23T17:40:00",
-      "EndsAt": "2026-09-23T18:30:00",
-      "IsServiceSession": false,
-      "speakers": [
-        "hans-muns"
       ],
       "SessionFormat": null,
       "Level": null,
@@ -298,7 +298,7 @@
       "Room": "The Garden"
     },
     {
-      "Id": "c9af2501-fc24-4465-9339-2d6335728888",
+      "Id": "37ebf1ed-2aa3-4ffa-833b-66b53628b70c",
       "Title": "Dinner",
       "Description": null,
       "StartsAt": "2026-09-23T18:30:00",
@@ -324,21 +324,21 @@
       "Room": "Plaza"
     },
     {
-      "Id": "build-and-orchestrate-multiagent-workflows-using-microsoft-foundry-agent-service",
-      "Title": "Build and Orchestrate Multi-Agent Workflows Using Microsoft Foundry Agent Service",
-      "Description": "Modern AI solutions increasingly rely on multiple specialized agents working together across workflows, approvals, and business processes rather than a single assistant operating in isolation. Developers, ML engineers, and IT professionals need practical approaches to coordinate these agents using secure, scalable orchestration patterns without building complex backend services.\r\n\r\nIn this session, you\u2019ll learn how to build and orchestrate multi-agent workflows visually using Microsoft Foundry Agent Service through a live demonstration in the Foundry portal. We\u2019ll explore how specialized agents collaborate using orchestration patterns such as sequential pipelines, agent-to-agent coordination, and human-in-the-loop approval steps to support real-world automation scenarios.\r\n\r\nYou\u2019ll also see how Power Fx expressions enable branching workflow logic and variable handling directly within agent workflows, allowing you to control execution paths using a low-code approach. The session further demonstrates how agents can securely connect to tools and services using Microsoft Entra ID\u2013based identities and how agents can be reused across workflows as part of larger automation solutions.\r\n\r\nBy the end of this session, you\u2019ll understand how to implement coordinated multi-agent workflows using practical orchestration techniques that can be applied immediately in your own solutions.",
+      "Id": "eventdriven-devops-automating-azure-with-event-grid-system-topics",
+      "Title": "Event-Driven DevOps: Automating Azure with Event Grid System Topics",
+      "Description": "Modern DevOps on Azure isn\u2019t just about pipelines, it\u2019s about making your platform reactive. With Event Grid system topics, you can automatically respond to changes in your Azure environment, triggering workflows the moment resources are created, updated, or deleted.\r\n\r\nIn this session, we\u2019ll cover:\r\n- How system topics work and how they fit into DevOps workflows\r\n- Connecting Event Grid to various automation and orchestration tools\r\n- Different practical use cases for event-driven automation\r\n- A live demo where a resource change triggers a deployment-related automation\r\n\r\nAfter this session, you\u2019ll walk away with practical techniques to make your Azure platform more event-driven, reducing manual steps, closing feedback loops, and bringing DevOps automation to the next level.",
       "StartsAt": "2026-09-23T19:30:00",
       "EndsAt": "2026-09-23T20:20:00",
       "IsServiceSession": false,
       "speakers": [
-        "alpa-buddhabhatti"
+        "hans-muns"
       ],
       "SessionFormat": null,
       "Level": null,
       "Room": "Penthouse"
     },
     {
-      "Id": "5876c19f-351b-466e-9287-609b556bb2d7",
+      "Id": "4c67bf31-4509-4115-a0f5-dfe9fd4b9355",
       "Title": "Drinks",
       "Description": null,
       "StartsAt": "2026-09-23T20:20:00",

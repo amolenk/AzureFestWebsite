@@ -90,7 +90,7 @@ export const websiteSettings: WebsiteSettings = {
         },
         schedule: {
             announced: true,
-            finalized: false,
+            finalized: true,
             timeZone: "+02:00"
         },
         registration: {
