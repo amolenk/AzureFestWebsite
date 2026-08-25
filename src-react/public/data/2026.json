@@ -138,7 +138,7 @@
   ],
   "Sessions": [
     {
-      "Id": "54fc2d7b-558d-49f4-84e5-56cd5ecd722b",
+      "Id": "2f22b3ea-f91b-4517-a4b0-f3434e45760f",
       "Title": "Registration",
       "Description": null,
       "StartsAt": "2026-09-23T13:00:00",
@@ -150,22 +150,10 @@
       "Room": "Atrium"
     },
     {
-      "Id": "5787985d-a029-4453-b79a-b94c0b784a26",
-      "Title": "Welcome",
-      "Description": null,
-      "StartsAt": "2026-09-23T13:45:00",
-      "EndsAt": "2026-09-23T14:00:00",
-      "IsServiceSession": true,
-      "speakers": [],
-      "SessionFormat": null,
-      "Level": null,
-      "Room": "Plaza"
-    },
-    {
       "Id": "dont-automate-the-past-rethinking-what-we-can-make-possible-with-azure-and-ai",
       "Title": "Don\u2019t Automate the Past: Rethinking What We Can Make Possible with Azure and AI",
       "Description": "We have a habit of using new technology to optimize the world we already know. We moved datacenters to the cloud, digitized existing processes, and are now asking AI to perform the same work a little faster.\r\n\r\nBut what if the real opportunity is not automation, but reinvention?\r\n\r\nAI is becoming an intelligence layer across the organization: supporting individual productivity, understanding business data and processes, powering new products, and increasingly taking action through agents. With Azure, Microsoft Foundry, Fabric, and the wider Microsoft Cloud, organizations can combine model choice with the context, governance, and controls needed to apply that intelligence at enterprise scale.\r\nYet technology alone does not create transformation. Our existing experience, organizational structures, and understandable desire for control can prevent us from seeing what has become possible.\r\n\r\nIn this keynote, we\u2019ll examine the human patterns that cause us to dismiss or domesticate disruptive technology. We\u2019ll explore how Azure and AI are changing the possibilities across work, business processes, platforms, and products, and why sovereignty, governance, and platform engineering are not barriers to that future, but essential foundations for building it.\r\n\r\nThe question is no longer simply what AI can do. It is what we are prepared to rethink",
-      "StartsAt": "2026-09-23T14:00:00",
+      "StartsAt": "2026-09-23T13:45:00",
       "EndsAt": "2026-09-23T15:00:00",
       "IsServiceSession": false,
       "speakers": [
@@ -218,7 +206,7 @@
       "Room": "The Garden"
     },
     {
-      "Id": "85770701-6d9d-48cc-a190-0dfc964d2c73",
+      "Id": "32c2845a-e828-45d7-a357-63590434704a",
       "Title": "Break",
       "Description": null,
       "StartsAt": "2026-09-23T16:05:00",
@@ -315,7 +303,7 @@
       "Room": "The Garden"
     },
     {
-      "Id": "17277885-a79a-4957-b7e1-ebcde2bcb692",
+      "Id": "4b733e15-8b7f-4a4e-888b-6e9203148078",
       "Title": "Dinner",
       "Description": null,
       "StartsAt": "2026-09-23T18:30:00",
@@ -370,7 +358,7 @@
       "Room": "The Garden"
     },
     {
-      "Id": "0ff971df-cf61-4524-a1d4-de8363353047",
+      "Id": "09d3389a-cef9-47c2-a31e-dd7cad11a5f5",
       "Title": "Drinks",
       "Description": null,
       "StartsAt": "2026-09-23T20:20:00",
