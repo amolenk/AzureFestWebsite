@@ -117,7 +117,7 @@ export const websiteSettings: WebsiteSettings = {
                 { name: "Info Support", websiteUrl: "https://www.infosupport.com", imageUrl: "img/sponsors/info-support.png" },
                 // { name: "Luminis", websiteUrl: "https://luminis.eu", imageUrl: "img/sponsors/Luminis.png" },
                 { name: "Microsoft", websiteUrl: "https://www.microsoft.com", imageUrl: "img/sponsors/microsoft.png" },
-                { name: "BBTG", websiteUrl: "https://rubicon.nl", imageUrl: "img/sponsors/bbtg.jpg" },
+                { name: "BBTG", websiteUrl: "https://bbtg.com", imageUrl: "img/sponsors/bbtg.jpg" },
                 { name: "Sopra Steria", websiteUrl: "https://www.soprasteria.nl", imageUrl: "img/sponsors/sopra-steria.png" },
                 // { name: "Cegeka", websiteUrl: "https://www.cegeka.nl", imageUrl: "img/sponsors/cegeka.png" },
                 // { name: "The Factory", websiteUrl: "https://www.thefactory.nl", imageUrl: "img/sponsors/the-factory.png" }
