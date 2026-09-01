@@ -138,7 +138,7 @@
   ],
   "Sessions": [
     {
-      "Id": "2f22b3ea-f91b-4517-a4b0-f3434e45760f",
+      "Id": "13c4e8ad-1b18-4134-b470-ee9add985795",
       "Title": "Registration",
       "Description": null,
       "StartsAt": "2026-09-23T13:00:00",
@@ -206,7 +206,7 @@
       "Room": "The Garden"
     },
     {
-      "Id": "32c2845a-e828-45d7-a357-63590434704a",
+      "Id": "1ec9bf6e-5ca4-4842-9e72-3aedba774a24",
       "Title": "Break",
       "Description": null,
       "StartsAt": "2026-09-23T16:05:00",
@@ -260,20 +260,6 @@
       "Room": "The Garden"
     },
     {
-      "Id": "avnm-governing-and-scaling-virtual-networks-the-right-way",
-      "Title": "AVNM: Governing and Scaling Virtual Networks the Right Way",
-      "Description": "Managing a handful of Azure virtual networks is straightforward. Managing dozens across multiple subscriptions, teams, and regions, without losing control of your security posture or drowning in manual peering configurations, is a different problem entirely. Azure Virtual Network Manager was built for exactly that, yet many teams either don\u0027t know it exists or find the docs confusing.\r\n\r\nIn this session, we go deep. You\u0027ll get a clear picture of AVNM\u0027s architecture: network groups, connectivity configurations, and security admin rules. But also, how they compose into a governance model that actually scales. We\u0027ll cover where AVNM fits into a Landing Zone design, how Azure Policy drives dynamic group membership, and where the boundaries lie. Architecture diagrams, live demos, and real deployment decisions included.",
-      "StartsAt": "2026-09-23T17:40:00",
-      "EndsAt": "2026-09-23T18:30:00",
-      "IsServiceSession": false,
-      "speakers": [
-        "vladimir-stefanovic"
-      ],
-      "SessionFormat": null,
-      "Level": null,
-      "Room": "Plaza"
-    },
-    {
       "Id": "the-cost-report-the-dashboard-you-open-with-fear",
       "Title": "The Cost Report: The Dashboard You Open with Fear",
       "Description": "You deployed the solution.\r\nIt works.\r\nUsers are happy.\r\n\r\nAnd then\u2026 you open the cost report.\r\n\r\nThis session explores why cloud costs often feel unpredictable \u2014 and how to turn that fear into control.\r\n\r\nI\u2019ll start with the foundations: what FinOps really is (beyond \u201Ccutting costs\u201D) and how the FinOps Framework structures collaboration between engineering, finance, and business teams. You\u2019ll see why cost visibility fundamentally changes engineering behavior and why transparency is the foundation of sustainable cloud growth.\r\n\r\nThen we\u2019ll move from theory to practice. You\u2019ll learn practical, Azure-focused strategies to control and optimize spending without slowing down innovation. Topics include right-sizing virtual machines, leveraging Reserved Instances and Savings Plans, using Azure Hybrid Benefit, implementing storage tiering and autoscaling, and strengthening governance through tagging, budget alerts, and cost management dashboards.\r\n\r\nBeyond tools and features, we\u2019ll discuss how to build a culture of cost ownership within cloud teams \u2014 where every architectural decision directly impacts the invoice.\r\n\r\nBecause in the cloud, cost is not a finance problem.\r\nIt\u2019s an architectural decision.",
@@ -282,6 +268,20 @@
       "IsServiceSession": false,
       "speakers": [
         "patrycja-stopka"
+      ],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "Plaza"
+    },
+    {
+      "Id": "eventdriven-devops-automating-azure-with-event-grid-system-topics",
+      "Title": "Event-Driven DevOps: Automating Azure with Event Grid System Topics",
+      "Description": "Modern DevOps on Azure isn\u2019t just about pipelines, it\u2019s about making your platform reactive. With Event Grid system topics, you can automatically respond to changes in your Azure environment, triggering workflows the moment resources are created, updated, or deleted.\r\n\r\nIn this session, we\u2019ll cover:\r\n- How system topics work and how they fit into DevOps workflows\r\n- Connecting Event Grid to various automation and orchestration tools\r\n- Different practical use cases for event-driven automation\r\n- A live demo where a resource change triggers a deployment-related automation\r\n\r\nAfter this session, you\u2019ll walk away with practical techniques to make your Azure platform more event-driven, reducing manual steps, closing feedback loops, and bringing DevOps automation to the next level.",
+      "StartsAt": "2026-09-23T17:40:00",
+      "EndsAt": "2026-09-23T18:30:00",
+      "IsServiceSession": false,
+      "speakers": [
+        "hans-muns"
       ],
       "SessionFormat": null,
       "Level": null,
@@ -303,7 +303,7 @@
       "Room": "The Garden"
     },
     {
-      "Id": "4b733e15-8b7f-4a4e-888b-6e9203148078",
+      "Id": "e3d680a6-7a27-4749-990a-62ba5605848a",
       "Title": "Dinner",
       "Description": null,
       "StartsAt": "2026-09-23T18:30:00",
@@ -329,14 +329,14 @@
       "Room": "Plaza"
     },
     {
-      "Id": "eventdriven-devops-automating-azure-with-event-grid-system-topics",
-      "Title": "Event-Driven DevOps: Automating Azure with Event Grid System Topics",
-      "Description": "Modern DevOps on Azure isn\u2019t just about pipelines, it\u2019s about making your platform reactive. With Event Grid system topics, you can automatically respond to changes in your Azure environment, triggering workflows the moment resources are created, updated, or deleted.\r\n\r\nIn this session, we\u2019ll cover:\r\n- How system topics work and how they fit into DevOps workflows\r\n- Connecting Event Grid to various automation and orchestration tools\r\n- Different practical use cases for event-driven automation\r\n- A live demo where a resource change triggers a deployment-related automation\r\n\r\nAfter this session, you\u2019ll walk away with practical techniques to make your Azure platform more event-driven, reducing manual steps, closing feedback loops, and bringing DevOps automation to the next level.",
+      "Id": "avnm-governing-and-scaling-virtual-networks-the-right-way",
+      "Title": "AVNM: Governing and Scaling Virtual Networks the Right Way",
+      "Description": "Managing a handful of Azure virtual networks is straightforward. Managing dozens across multiple subscriptions, teams, and regions, without losing control of your security posture or drowning in manual peering configurations, is a different problem entirely. Azure Virtual Network Manager was built for exactly that, yet many teams either don\u0027t know it exists or find the docs confusing.\r\n\r\nIn this session, we go deep. You\u0027ll get a clear picture of AVNM\u0027s architecture: network groups, connectivity configurations, and security admin rules. But also, how they compose into a governance model that actually scales. We\u0027ll cover where AVNM fits into a Landing Zone design, how Azure Policy drives dynamic group membership, and where the boundaries lie. Architecture diagrams, live demos, and real deployment decisions included.",
       "StartsAt": "2026-09-23T19:30:00",
       "EndsAt": "2026-09-23T20:20:00",
       "IsServiceSession": false,
       "speakers": [
-        "hans-muns"
+        "vladimir-stefanovic"
       ],
       "SessionFormat": null,
       "Level": null,
@@ -358,7 +358,7 @@
       "Room": "The Garden"
     },
     {
-      "Id": "09d3389a-cef9-47c2-a31e-dd7cad11a5f5",
+      "Id": "e8827d88-993b-4a55-87c7-14c45ffed402",
       "Title": "Drinks",
       "Description": null,
       "StartsAt": "2026-09-23T20:20:00",
