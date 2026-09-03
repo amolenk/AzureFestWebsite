@@ -111,13 +111,15 @@ export const websiteSettings: WebsiteSettings = {
         ],
         sponsors: {
             gold: [
+                { name: "BNG Bank", websiteUrl: "https://www.bngbank.nl", imageUrl: "img/sponsors/bng-bank.png" },
                 { name: "Brainstack", websiteUrl: "https://www.brainstack.nl", imageUrl: "img/sponsors/brainstack.png" },
                 // { name: "Cloud Republic", websiteUrl: "https://cloudrepublic.nl", imageUrl: "img/sponsors/cloudrepublic.png" },
                 // { name: "Dutchworkz", websiteUrl: "https://dutchworkz.nl", imageUrl: "img/sponsors/dutchworkz.png" },
                 { name: "Info Support", websiteUrl: "https://www.infosupport.com", imageUrl: "img/sponsors/info-support.png" },
                 // { name: "Luminis", websiteUrl: "https://luminis.eu", imageUrl: "img/sponsors/Luminis.png" },
-                { name: "Microsoft", websiteUrl: "https://www.microsoft.com", imageUrl: "img/sponsors/microsoft.png" },
+                // { name: "Microsoft", websiteUrl: "https://www.microsoft.com", imageUrl: "img/sponsors/microsoft.png" },
                 { name: "BBTG", websiteUrl: "https://bbtg.com", imageUrl: "img/sponsors/bbtg.jpg" },
+                { name: "Simac", websiteUrl: "https://www.simac.com", imageUrl: "img/sponsors/simac.jpg" },
                 { name: "Sopra Steria", websiteUrl: "https://www.soprasteria.nl", imageUrl: "img/sponsors/sopra-steria.png" },
                 // { name: "Cegeka", websiteUrl: "https://www.cegeka.nl", imageUrl: "img/sponsors/cegeka.png" },
                 // { name: "The Factory", websiteUrl: "https://www.thefactory.nl", imageUrl: "img/sponsors/the-factory.png" }
