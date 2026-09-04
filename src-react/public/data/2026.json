@@ -138,7 +138,7 @@
   ],
   "Sessions": [
     {
-      "Id": "13c4e8ad-1b18-4134-b470-ee9add985795",
+      "Id": "4b988fd4-b8b5-4be6-b099-699797caa474",
       "Title": "Registration",
       "Description": null,
       "StartsAt": "2026-09-23T13:00:00",
@@ -206,7 +206,7 @@
       "Room": "The Garden"
     },
     {
-      "Id": "1ec9bf6e-5ca4-4842-9e72-3aedba774a24",
+      "Id": "fcb7f8be-a610-486c-9810-c7257ceae7e7",
       "Title": "Break",
       "Description": null,
       "StartsAt": "2026-09-23T16:05:00",
@@ -260,11 +260,23 @@
       "Room": "The Garden"
     },
     {
+      "Id": "74a1a3c9-6b5d-4dbd-a1eb-89a0e1a979b6",
+      "Title": "Dinner",
+      "Description": null,
+      "StartsAt": "2026-09-23T17:25:00",
+      "EndsAt": "2026-09-23T18:25:00",
+      "IsServiceSession": true,
+      "speakers": [],
+      "SessionFormat": null,
+      "Level": null,
+      "Room": "Atrium"
+    },
+    {
       "Id": "the-cost-report-the-dashboard-you-open-with-fear",
       "Title": "The Cost Report: The Dashboard You Open with Fear",
       "Description": "You deployed the solution.\r\nIt works.\r\nUsers are happy.\r\n\r\nAnd then\u2026 you open the cost report.\r\n\r\nThis session explores why cloud costs often feel unpredictable \u2014 and how to turn that fear into control.\r\n\r\nI\u2019ll start with the foundations: what FinOps really is (beyond \u201Ccutting costs\u201D) and how the FinOps Framework structures collaboration between engineering, finance, and business teams. You\u2019ll see why cost visibility fundamentally changes engineering behavior and why transparency is the foundation of sustainable cloud growth.\r\n\r\nThen we\u2019ll move from theory to practice. You\u2019ll learn practical, Azure-focused strategies to control and optimize spending without slowing down innovation. Topics include right-sizing virtual machines, leveraging Reserved Instances and Savings Plans, using Azure Hybrid Benefit, implementing storage tiering and autoscaling, and strengthening governance through tagging, budget alerts, and cost management dashboards.\r\n\r\nBeyond tools and features, we\u2019ll discuss how to build a culture of cost ownership within cloud teams \u2014 where every architectural decision directly impacts the invoice.\r\n\r\nBecause in the cloud, cost is not a finance problem.\r\nIt\u2019s an architectural decision.",
-      "StartsAt": "2026-09-23T17:40:00",
-      "EndsAt": "2026-09-23T18:30:00",
+      "StartsAt": "2026-09-23T18:25:00",
+      "EndsAt": "2026-09-23T19:15:00",
       "IsServiceSession": false,
       "speakers": [
         "patrycja-stopka"
@@ -277,8 +289,8 @@
       "Id": "eventdriven-devops-automating-azure-with-event-grid-system-topics",
       "Title": "Event-Driven DevOps: Automating Azure with Event Grid System Topics",
       "Description": "Modern DevOps on Azure isn\u2019t just about pipelines, it\u2019s about making your platform reactive. With Event Grid system topics, you can automatically respond to changes in your Azure environment, triggering workflows the moment resources are created, updated, or deleted.\r\n\r\nIn this session, we\u2019ll cover:\r\n- How system topics work and how they fit into DevOps workflows\r\n- Connecting Event Grid to various automation and orchestration tools\r\n- Different practical use cases for event-driven automation\r\n- A live demo where a resource change triggers a deployment-related automation\r\n\r\nAfter this session, you\u2019ll walk away with practical techniques to make your Azure platform more event-driven, reducing manual steps, closing feedback loops, and bringing DevOps automation to the next level.",
-      "StartsAt": "2026-09-23T17:40:00",
-      "EndsAt": "2026-09-23T18:30:00",
+      "StartsAt": "2026-09-23T18:25:00",
+      "EndsAt": "2026-09-23T19:15:00",
       "IsServiceSession": false,
       "speakers": [
         "hans-muns"
@@ -291,8 +303,8 @@
       "Id": "building-intelligent-search-with-azure-ai-search-part-1",
       "Title": "Building Intelligent Search with Azure AI Search ( Part 1)",
       "Description": "In this developer-focused, hands-on workshop, you\u2019ll build an intelligent search solution using Azure AI Search, powered by a dataset from The Office (US).\r\nWe\u2019ll move from raw data to AI-enriched discovery in a practical, end-to-end scenario. Starting with data exploration, you\u2019ll design and implement a robust ingestion pipeline, define and optimize search indexes, and understand how schema decisions affect relevance and ranking.\r\nFrom there, you\u2019ll enhance your solution with cognitive skills, extracting entities, key phrases, and insights to transform unstructured data into searchable gold.\r\nFinally, we\u2019ll extend the solution using Foundry IQ to add contextual intelligence and deeper reasoning on top of traditional search.\r\nBy the end of the session, you\u2019ll understand how to architect, build, and evolve an AI-powered search experience using Azure AI Search.",
-      "StartsAt": "2026-09-23T17:40:00",
-      "EndsAt": "2026-09-23T18:30:00",
+      "StartsAt": "2026-09-23T18:25:00",
+      "EndsAt": "2026-09-23T19:15:00",
       "IsServiceSession": false,
       "speakers": [
         "stuart-van-der-lee",
@@ -301,18 +313,6 @@
       "SessionFormat": null,
       "Level": null,
       "Room": "The Garden"
-    },
-    {
-      "Id": "e3d680a6-7a27-4749-990a-62ba5605848a",
-      "Title": "Dinner",
-      "Description": null,
-      "StartsAt": "2026-09-23T18:30:00",
-      "EndsAt": "2026-09-23T19:30:00",
-      "IsServiceSession": true,
-      "speakers": [],
-      "SessionFormat": null,
-      "Level": null,
-      "Room": "Atrium"
     },
     {
       "Id": "cloud-native-platform-engineering-on-azure",
@@ -358,7 +358,7 @@
       "Room": "The Garden"
     },
     {
-      "Id": "e8827d88-993b-4a55-87c7-14c45ffed402",
+      "Id": "124e2197-4fe7-4002-8e56-a26e86539a73",
       "Title": "Drinks",
       "Description": null,
       "StartsAt": "2026-09-23T20:20:00",
