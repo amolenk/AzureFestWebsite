@@ -2,7 +2,7 @@
 const { createServer } = require('http');
 const next = require('next');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3003;
 const app = next({ dev: false });       // dev: true for local debugging
 const handle = app.getRequestHandler();
 

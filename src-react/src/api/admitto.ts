@@ -192,6 +192,18 @@ export async function cancel(registrationId: string) {
   }
 }
 
+export async function reconfirm(registrationId: string) {
+  const url = `${getEventUrl()}/registrations/${encodeURIComponent(registrationId)}/reconfirm`;
+  const res = await fetch(url, {
+    method: "POST",
+    headers: getApiKeyHeaders()
+  });
+
+  if (!res.ok) {
+    throw await admittoErrorFromResponse(res, "Reconfirmation failed.");
+  }
+}
+
 export async function joinWaitlist(ticketTypeId: string, email: string, verificationToken?: string) {
   const url = `${getEventUrl()}/waitlist/${ticketTypeId}`;
   const headers: Record<string, string> = { ...getApiKeyHeaders(), "Content-Type": "application/json" };

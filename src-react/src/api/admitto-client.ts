@@ -85,6 +85,12 @@ export async function cancel(registrationId: string) {
   });
 }
 
+export async function reconfirmRegistration(registrationId: string) {
+  await request(`/api/admitto/registrations/${encodeURIComponent(registrationId)}/reconfirm`, {
+    method: "POST"
+  });
+}
+
 export async function joinWaitlist(ticketTypeId: string, email: string, verificationToken: string, vipCode?: string) {
   await request(withVipCode("/api/admitto/waitlist", vipCode), {
     method: "POST",
