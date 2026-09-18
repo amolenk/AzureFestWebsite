@@ -128,8 +128,7 @@ export const websiteSettings: WebsiteSettings = {
                 { name: "Dutch Azure Meetup", websiteUrl: "https://dutchazuremeetup.nl", imageUrl: "img/sponsors/dutchazuremeetup.png" },
                 { name: "Dutch Women in Tech", websiteUrl: "https://www.dwit.work", imageUrl: "img/sponsors/dutch-women-in-tech.png" },
                 { name: "SDN", websiteUrl: "https://sdn.nl", imageUrl: "img/sponsors/SDN_rgb.png" },
-                { name: "SDN Cast", websiteUrl: "https://www.sdncast.nl", imageUrl: "img/sponsors/SDN_cast.png" },
-                { name: "Azure Heroes", websiteUrl: "https://www.azug.nl", imageUrl: "img/sponsors/azure-heroes.png" }
+                { name: "SDN Cast", websiteUrl: "https://www.sdncast.nl", imageUrl: "img/sponsors/SDN_cast.png" }
             ]
         },
         isCurrentlyTakingPlace: function () {
