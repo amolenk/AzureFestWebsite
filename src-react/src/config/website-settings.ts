@@ -95,7 +95,7 @@ export const websiteSettings: WebsiteSettings = {
         },
         registration: {
             opensAt: new Date("2026-07-03T16:00:00+02:00"),
-            closesAt: new Date("2026-09-22T23:59:59+02:00"),
+            closesAt: new Date("2026-09-22T15:00:00+02:00"),
             enabled: true,
             isOpen: function () {
                 const now = new Date();
