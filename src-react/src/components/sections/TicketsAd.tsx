@@ -34,7 +34,7 @@ export default function TicketsAd() {
         <div className="row justify-content-center">
           <div className="col-lg-6 text-center">
             <p>Tickets to Azure Fest are 100% free and include parking &amp; dinner.</p>
-            <p>Available from July 8th for everybody. Members of Dutch Azure Meetup can get a ticket 1 day earlier.</p>
+            <p>Ticket registration is currently unavailable.</p>
           </div>
         </div>
       )}

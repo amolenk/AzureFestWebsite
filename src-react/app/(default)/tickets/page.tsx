@@ -30,7 +30,7 @@ export default async function TicketsPage({
             <div className="col-lg-6 text-center">
               <p>Tickets to Azure Fest are 100% free and include parking &amp; dinner.</p>
               <p>
-                We're currently hard at work preparing for Azure Fest. Tickets will be available soon.
+                Ticket registration is currently unavailable.
               </p>
             </div>
           </div>
